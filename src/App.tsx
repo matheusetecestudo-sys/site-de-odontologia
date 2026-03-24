@@ -210,7 +210,6 @@ const Hero = () => {
             <p className="text-xl text-text-muted font-light leading-relaxed max-w-lg mb-12">
               Na <span className="font-bold text-primary">{CLINIC_CONFIG.logo}</span>, redesenhamos sorrisos com tecnologia de ponta e um olhar artístico individualizado.
             </p>
-            
             <div className="flex flex-col sm:flex-row gap-6">
               <motion.a 
                 href={`https://wa.me/${CLINIC_CONFIG.whatsapp}?text=${encodeURIComponent(CLINIC_CONFIG.whatsappMsg)}`}
@@ -221,13 +220,6 @@ const Hero = () => {
               >
                 Agendar Avaliação
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </motion.a>
-              <motion.a 
-                href={`https://wa.me/${CLINIC_CONFIG.whatsapp}?text=${encodeURIComponent(CLINIC_CONFIG.whatsappMsg)}`}
-                whileHover={{ scale: 1.02 }}
-                className="px-10 py-5 rounded-full font-bold text-[11px] tracking-[0.2em] uppercase border border-primary/10 hover:bg-white transition-all flex items-center justify-center"
-              >
-                Ver Resultados
               </motion.a>
             </div>
 
@@ -1079,13 +1071,13 @@ const ClinicExperience = () => (
           </div>
         </div>
         <div className="h-[250px] md:h-full rounded-[40px] overflow-hidden shadow-xl group">
-          <img src="https://images.unsplash.com/photo-1593054910314-d242f3607fc8?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Equipamentos" />
+          <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Equipamentos" />
         </div>
         <div className="h-[250px] md:h-full rounded-[40px] overflow-hidden shadow-xl group">
-          <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Biossegurança" />
+          <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Biossegurança" />
         </div>
         <div className="md:col-span-2 h-[300px] md:h-full rounded-[40px] md:rounded-[50px] overflow-hidden shadow-xl group relative">
-          <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Sala de Espera" />
+          <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Sala de Espera" />
           <div className="absolute inset-0 bg-primary/10"></div>
           <div className="absolute bottom-8 right-8 text-white text-right">
             <p className="text-xl md:text-2xl font-display">Conforto & Bem-Estar</p>
@@ -1146,6 +1138,13 @@ export default function App() {
         )}
       </AnimatePresence>
 
+      <style>{`
+        html { scroll-behavior: smooth; }
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #0F172A; }
+        ::-webkit-scrollbar-thumb { background: #2563EB; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3B82F6; }
+      `}</style>
       <ScrollProgress />
       <Navbar />
       <Hero />
