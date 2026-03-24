@@ -98,6 +98,7 @@ const Navbar = () => {
     { name: 'SERVIÇOS', href: '#servicos' },
     { name: 'PORTFÓLIO', href: '#portfolio' },
     { name: 'DEPOIMENTOS', href: '#depoimentos' },
+    { name: 'LOCALIZAÇÃO', href: '#mapa' },
     { name: 'CONTATO', href: '#contato' },
     { name: 'FAQ', href: '#faq' },
   ];
@@ -320,7 +321,7 @@ const Philosophy = () => (
             <div className="aspect-[4/5] rounded-[60px] overflow-hidden shadow-2xl">
               <img 
                 src="https://images.unsplash.com/photo-1552693673-1bf958298935?auto=format&fit=crop&q=80&w=1000" 
-                alt="Filosofia Aura" 
+                alt={`Filosofia ${CLINIC_CONFIG.logo}`} 
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
               />
@@ -351,7 +352,7 @@ const Philosophy = () => (
           </h2>
           <div className="space-y-8 text-text-muted font-light leading-relaxed text-lg">
             <p>
-              Na Aura, não buscamos apenas tratar dentes, mas sim desenhar sorrisos que harmonizam com sua personalidade e traços faciais. Nossa abordagem é pautada na elegância e na funcionalidade.
+              Na {CLINIC_CONFIG.logo}, não buscamos apenas tratar dentes, mas sim desenhar sorrisos que harmonizam com sua personalidade e traços faciais. Nossa abordagem é pautada na elegância e na funcionalidade.
             </p>
             <p>
               Cada sorriso é único, e cada planejamento digital é desenvolvido para respeitar sua anatomia, utilizando a tecnologia 3D a favor da sua melhor expressão.
@@ -496,12 +497,76 @@ const Services = () => {
       size: "small"
     },
     { 
+      title: "Clareamento", 
+      desc: "Tecnologia de ponta para um branqueamento seguro e resultados duradouros.", 
+      image: "https://images.unsplash.com/photo-1609840112855-9ab5af8f66e8?auto=format&fit=crop&q=80&w=800",
+      icon: <Sparkles />,
+      tag: "ESTÉTICA",
+      size: "small"
+    },
+    { 
       title: "Check-up Digital", 
       desc: "Prevenção com tecnologia de escaneamento 3D de alta precisão.", 
       image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800",
       icon: <CheckCircle2 />,
       tag: "PREVENÇÃO",
       size: "large"
+    },
+    { 
+      title: "Endodontia", 
+      desc: "Tratamentos de canal com precisão milimétrica e máximo conforto.", 
+      image: "https://images.unsplash.com/photo-1593054910314-d242f3607fc8?auto=format&fit=crop&q=80&w=800",
+      icon: <ShieldCheck />,
+      tag: "ESPECIALIZADA",
+      size: "small"
+    },
+    { 
+      title: "Odontopediatria", 
+      desc: "O primeiro contato com o dentista de forma lúdica e acolhedora.", 
+      image: "https://images.unsplash.com/photo-1601305410972-e15a1332f7a9?auto=format&fit=crop&q=80&w=800",
+      icon: <Smile />,
+      tag: "CUIDADO",
+      size: "small"
+    },
+    { 
+      title: "Restaurações", 
+      desc: "Materiais bio-compatíveis que imitam a anatomia natural do dente.", 
+      image: "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&q=80&w=800",
+      icon: <CheckCircle2 />,
+      tag: "ESTÉTICA",
+      size: "small"
+    },
+    { 
+      title: "Gengivoplastia", 
+      desc: "Correção estética da gengiva para um sorriso mais harmônico.", 
+      image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800",
+      icon: <Star />,
+      tag: "CIRURGIA",
+      size: "small"
+    },
+    { 
+      title: "Cirurgia Oral", 
+      desc: "Extrações complexas e procedimentos cirúrgicos com sedação consciente.", 
+      image: "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=800",
+      icon: <ShieldCheck />,
+      tag: "CIRURGIA",
+      size: "small"
+    },
+    { 
+      title: "Disfunção ATM", 
+      desc: "Tratamento especializado para dores na face, estalos e bruxismo.", 
+      image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800",
+      icon: <Zap />,
+      tag: "ESPECIALIZADA",
+      size: "small"
+    },
+    { 
+      title: "Ortodontia", 
+      desc: "Aparelhos fixos e estéticos para todas as fases da vida.", 
+      image: "https://images.unsplash.com/photo-1516062423079-7ca13cdc7f5a?auto=format&fit=crop&q=80&w=800",
+      icon: <Zap />,
+      tag: "ALINHAMENTO",
+      size: "small"
     }
   ];
 
@@ -520,7 +585,7 @@ const Services = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
+              transition={{ delay: (i % 3) * 0.1 }}
               className={`relative rounded-[40px] overflow-hidden group shadow-premium border border-white/20 ${s.size === 'large' ? 'md:col-span-2' : 'md:col-span-1'}`}
             >
               <img 
@@ -612,7 +677,7 @@ const Testimonials = () => (
         {[
           { name: "Mariana Silva", text: "A Dra. Helena é incrível! Minhas lentes de contato ficaram super naturais, exatamente como eu queria. Recomendo de olhos fechados.", role: "PACIENTE DE LENTES" },
           { name: "Ricardo Oliveira", text: "Excelente atendimento e tecnologia de ponta. Fiz o tratamento com Invisalign e os resultados foram rápidos e discretos.", role: "PACIENTE DE INVISALIGN" },
-          { name: "Carla Mendes", text: "Minha experiência na Aura foi acolhedora. O implante que fiz devolveu minha segurança para comer e sorrir.", role: "PACIENTE DE IMPLANTE" }
+          { name: "Carla Mendes", text: "Minha experiência na DUNO foi acolhedora. O implante que fiz devolveu minha segurança para comer e sorrir.", role: "PACIENTE DE IMPLANTE" }
         ].map((t, i) => (
           <div key={i} className="bg-white p-10 rounded-2xl shadow-premium border border-slate-100 relative">
             <div className="text-accent mb-6 flex gap-1">
@@ -961,7 +1026,7 @@ const ContactSection = () => (
             <div className="aspect-square rounded-[60px] overflow-hidden shadow-2xl border-8 border-white">
               <img 
                 src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=1000" 
-                alt="Clínica Aura" 
+                alt={`Clínica ${CLINIC_CONFIG.logo}`} 
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
               />
@@ -969,6 +1034,64 @@ const ContactSection = () => (
             <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-accent rounded-full flex items-center justify-center text-white text-center p-6 shadow-2xl border-8 border-white">
               <p className="text-[10px] font-bold tracking-[0.2em] uppercase">Ambiente Exclusivo & Acolhedor</p>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+const MapSection = () => (
+  <section id="mapa" className="h-[600px] w-full relative grayscale hover:grayscale-0 transition-all duration-1000">
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1974758953116!2d-46.65463742456578!3d-23.561349678800165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da173f47%3A0xad52077e60e86b46!2sAv.%20Paulista%2C%201000%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001311-000!5e0!3m2!1spt-BR!2sbr!4v1711296540000!5m2!1spt-BR!2sbr" 
+      width="100%" 
+      height="100%" 
+      style={{ border: 0 }} 
+      allowFullScreen 
+      loading="lazy" 
+      referrerPolicy="no-referrer-when-downgrade"
+      title="Localização da Clínica"
+    ></iframe>
+    <div className="absolute top-12 left-12 glass-card p-10 rounded-[40px] max-w-sm hidden md:block">
+      <h4 className="text-2xl font-display text-primary mb-4">Visite-nos</h4>
+      <p className="text-text-muted text-sm font-light leading-relaxed mb-6">
+        Estamos localizados no coração de São Paulo, prontos para oferecer uma experiência odontológica sem precedentes.
+      </p>
+      <a 
+        href="https://maps.app.goo.gl/..." 
+        target="_blank" 
+        className="text-accent font-bold text-[10px] tracking-widest uppercase flex items-center gap-2"
+      >
+        Como Chegar <ArrowRight size={14} />
+      </a>
+    </div>
+  </section>
+);
+
+const ClinicExperience = () => (
+  <section className="py-24 bg-white overflow-hidden">
+    <div className="max-w-7xl mx-auto px-6">
+      <div className="grid md:grid-cols-4 gap-4 auto-rows-[250px]">
+        <div className="md:col-span-2 md:row-span-2 rounded-[60px] overflow-hidden shadow-2xl relative group">
+          <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Consultório" />
+          <div className="absolute inset-0 bg-primary/20"></div>
+          <div className="absolute bottom-10 left-10 text-white">
+            <p className="text-[10px] uppercase tracking-widest font-bold mb-2">Infraestrutura</p>
+            <h4 className="text-3xl font-display">Tecnologia de Ponta</h4>
+          </div>
+        </div>
+        <div className="rounded-[40px] overflow-hidden shadow-xl group">
+          <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Equipamento" />
+        </div>
+        <div className="rounded-[40px] overflow-hidden shadow-xl group">
+          <img src="https://images.unsplash.com/photo-1516062423079-7ca13cdc7f5a?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Sala de Espera" />
+        </div>
+        <div className="md:col-span-2 rounded-[50px] overflow-hidden shadow-xl group relative">
+          <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Equipe" />
+          <div className="absolute inset-0 bg-primary/10"></div>
+          <div className="absolute bottom-8 right-8 text-white text-right">
+            <p className="text-2xl font-display">Cuidado Especializado</p>
           </div>
         </div>
       </div>
@@ -1017,11 +1140,13 @@ export default function App() {
       <Philosophy />
       <About />
       <Services />
+      <ClinicExperience />
       <Portfolio />
       <VirtualAssessment />
       <Testimonials />
       <Journey />
       <FAQ />
+      <MapSection />
       <ContactSection />
       <Footer />
       <FloatingWhatsApp />
