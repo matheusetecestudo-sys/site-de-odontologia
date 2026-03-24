@@ -38,7 +38,7 @@ const CLINIC_CONFIG = {
   responsibility: "Diretora Técnica",
   specialty: "Odontologia Estética & Reabilitação",
   experience: "20+ anos de excelência",
-  whatsapp: "5511999999999",
+  whatsapp: "5511992876219",
   whatsappMsg: "Olá! Gostaria de agendar uma avaliação na DUNO.",
   city: "São Paulo, SP",
   address: "Av. Paulista, 1000 - Sala 1201",
@@ -223,7 +223,7 @@ const Hero = () => {
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </motion.a>
               <motion.a 
-                href="#portfolio"
+                href={`https://wa.me/${CLINIC_CONFIG.whatsapp}?text=${encodeURIComponent(CLINIC_CONFIG.whatsappMsg)}`}
                 whileHover={{ scale: 1.02 }}
                 className="px-10 py-5 rounded-full font-bold text-[11px] tracking-[0.2em] uppercase border border-primary/10 hover:bg-white transition-all flex items-center justify-center"
               >
@@ -644,51 +644,6 @@ const Services = () => {
 };
 
 
-const VirtualAssessment = () => (
-  <section className="py-24 bg-primary relative overflow-hidden">
-    <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-accent rounded-full blur-[120px]"></div>
-      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-accent rounded-full blur-[120px]"></div>
-    </div>
-    
-    <div className="max-w-7xl mx-auto px-6 relative z-10">
-      <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-[60px] p-12 md:p-20 text-center">
-        <SectionTitle 
-          title="Avaliação Virtual" 
-          subtitle="Inicie sua jornada para o sorriso perfeito sem sair de casa. Envie suas fotos e receba um pré-planejamento exclusivo."
-          light
-        />
-        
-        <div className="grid md:grid-cols-3 gap-12 mb-16">
-          {[
-            { step: "01", title: "Fotos", desc: "Siga nosso guia simples para tirar fotos do seu sorriso." },
-            { step: "02", title: "Envio", desc: "Envie as imagens através do nosso canal seguro no WhatsApp." },
-            { step: "03", title: "Análise", desc: "A Dra. Helena fará uma análise preliminar do seu caso." }
-          ].map((item, i) => (
-            <div key={i} className="flex flex-col items-center">
-              <div className="w-16 h-16 rounded-full bg-accent/20 flex items-center justify-center text-accent font-display text-2xl mb-6 border border-accent/30">
-                {item.step}
-              </div>
-              <h4 className="text-white text-xl font-bold mb-4">{item.title}</h4>
-              <p className="text-white/60 text-sm font-light leading-relaxed">{item.desc}</p>
-            </div>
-          ))}
-        </div>
-        
-        <motion.a 
-          href={`https://wa.me/${CLINIC_CONFIG.whatsapp}?text=Olá! Gostaria de fazer uma avaliação virtual.`}
-          target="_blank"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="inline-flex items-center gap-4 bg-accent text-white px-12 py-6 rounded-full font-bold text-[12px] tracking-[0.3em] uppercase shadow-2xl shadow-accent/40"
-        >
-          INICIAR AGORA <ArrowRight size={18} />
-        </motion.a>
-      </div>
-    </div>
-  </section>
-);
-
 const BeforeAfter = () => null; // Consolidado no Portfolio
 
 const Testimonials = () => (
@@ -821,52 +776,45 @@ const FAQ = () => {
 };
 
 const Footer = () => (
-  <footer className="bg-primary text-white pt-32 pb-12">
+  <footer className="bg-primary text-white py-24 border-t border-white/5">
     <div className="max-w-7xl mx-auto px-6">
-      <div className="grid md:grid-cols-12 gap-16 mb-24">
-        <div className="md:col-span-5">
-          <div className="flex items-center gap-4 mb-10">
-            <h2 className="text-3xl font-display font-bold tracking-[0.3em] uppercase">{CLINIC_CONFIG.logo}</h2>
+      <div className="grid md:grid-cols-4 gap-16 mb-20">
+        <div className="md:col-span-1">
+          <div className="text-3xl font-display tracking-widest bg-clip-text text-transparent bg-gradient-to-r from-accent to-white mb-8">
+            {CLINIC_CONFIG.logo}
           </div>
-          <p className="text-slate-400 max-w-md mb-12 font-light leading-relaxed text-lg">
+          <p className="text-slate-400 text-sm font-light leading-relaxed mb-10">
             Redefinindo os padrões da odontologia moderna através da união entre tecnologia digital e sensibilidade estética. Seu sorriso, elevado ao nível de arte.
           </p>
           <div className="flex gap-6">
-            {['Instagram', 'WhatsApp', 'Facebook'].map(social => (
-              <a key={social} href="#" className="text-[10px] font-bold tracking-[0.2em] uppercase text-slate-400 hover:text-accent transition-colors">
-                {social}
-              </a>
-            ))}
+            <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-accent hover:border-accent transition-all cursor-pointer"><Instagram size={18} /></div>
+            <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-accent hover:border-accent transition-all cursor-pointer"><Facebook size={18} /></div>
+            <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-accent hover:border-accent transition-all cursor-pointer"><Linkedin size={18} /></div>
           </div>
         </div>
         
-        <div className="md:col-span-3">
-          <h4 className="font-bold mb-10 uppercase tracking-[0.3em] text-[10px] text-accent">Navegação</h4>
-          <ul className="space-y-6 text-slate-400 text-sm font-light">
-            <li><a href="#home" className="hover:text-white transition-all">Início</a></li>
-            <li><a href="#sobre" className="hover:text-white transition-all">A Especialista</a></li>
-            <li><a href="#servicos" className="hover:text-white transition-all">Procedimentos</a></li>
-            <li><a href="#resultados" className="hover:text-white transition-all">Resultados</a></li>
-            <li><a href="#depoimentos" className="hover:text-white transition-all">Depoimentos</a></li>
-          </ul>
+        <div>
+          <h5 className="text-[10px] font-bold tracking-[0.4em] uppercase mb-8 text-accent">Navegação</h5>
+          <div className="flex flex-col gap-4 text-sm text-slate-400 font-light">
+            <a href="#servicos" className="hover:text-white transition-colors">Especialidades</a>
+            <a href="#portfolio" className="hover:text-white transition-colors">Antes e Depois</a>
+            <a href="#faq" className="hover:text-white transition-colors">Dúvidas Frequentes</a>
+            <a href="#contato" className="hover:text-white transition-colors">Localização</a>
+          </div>
         </div>
         
-        <div className="md:col-span-4">
-          <h4 className="font-bold mb-10 uppercase tracking-[0.3em] text-[10px] text-accent">Onde Estamos</h4>
-          <ul className="space-y-8 text-slate-400 text-sm font-light">
-            <li className="flex items-start gap-4">
-              <MapPin size={20} className="text-accent shrink-0" /> 
-              <span className="leading-relaxed">{CLINIC_CONFIG.address}<br />{CLINIC_CONFIG.city}</span>
-            </li>
-            <li className="flex items-center gap-4">
-              <Phone size={20} className="text-accent shrink-0" /> 
-              <span className="tracking-widest">{CLINIC_CONFIG.whatsapp}</span>
-            </li>
-            <li className="flex items-center gap-4">
-              <Clock size={20} className="text-accent shrink-0" /> 
-              <span>{CLINIC_CONFIG.hours}</span>
-            </li>
-          </ul>
+        <div>
+          <h5 className="text-[10px] font-bold tracking-[0.4em] uppercase mb-8 text-accent">Horários</h5>
+          <div className="text-sm text-slate-400 font-light space-y-4">
+            <p>Segunda a Sexta</p>
+            <p className="text-white font-bold">{CLINIC_CONFIG.hours}</p>
+          </div>
+        </div>
+        
+        <div>
+          <h5 className="text-[10px] font-bold tracking-[0.4em] uppercase mb-8 text-accent">Fale Conosco</h5>
+          <p className="text-xl font-display text-white mb-4 line-clamp-1">{CLINIC_CONFIG.whatsapp}</p>
+          <p className="text-sm text-slate-400 font-light">{CLINIC_CONFIG.address}</p>
         </div>
       </div>
       
@@ -1104,7 +1052,7 @@ const MapSection = () => (
         Estamos localizados no coração de São Paulo, prontos para oferecer uma experiência odontológica sem precedentes.
       </p>
       <a 
-        href="https://maps.app.goo.gl/..." 
+        href={`https://wa.me/${CLINIC_CONFIG.whatsapp}?text=${encodeURIComponent(CLINIC_CONFIG.whatsappMsg)}`} 
         target="_blank" 
         className="text-accent font-bold text-[10px] tracking-widest uppercase flex items-center gap-2"
       >
@@ -1235,6 +1183,36 @@ const ScrollProgress = () => {
     />
   );
 };
+
+const VirtualAssessment = () => (
+  <section className="py-24 bg-bg-soft">
+    <div className="max-w-7xl mx-auto px-6">
+      <div className="bg-primary rounded-[60px] p-12 md:p-24 overflow-hidden relative">
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-accent/10 -skew-x-12 translate-x-1/4"></div>
+        <div className="relative z-10 flex flex-col md:flex-row items-center gap-16">
+          <div className="flex-1 text-center md:text-left">
+            <span className="text-accent font-bold uppercase tracking-[0.4em] text-[10px] mb-8 block">CONSULTA VIRTUAL</span>
+            <h2 className="text-4xl md:text-6xl font-display text-white mb-8">Comece seu <br /><span className="italic text-accent">Novo Sorriso</span> hoje.</h2>
+            <p className="text-white/70 text-lg font-light mb-12 max-w-lg">
+              Receba uma pré-via da sua transformação sem sair de casa. Nossa equipe está pronta para te atender via WhatsApp.
+            </p>
+            <motion.a 
+              href={`https://wa.me/${CLINIC_CONFIG.whatsapp}?text=${encodeURIComponent(CLINIC_CONFIG.whatsappMsg)}`}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-accent text-white px-12 py-6 rounded-full font-bold text-[12px] tracking-[0.3em] uppercase inline-flex items-center gap-4 shadow-2xl shadow-accent/20"
+            >
+              Iniciar Consulta Virtual <ArrowRight size={16} />
+            </motion.a>
+          </div>
+          <div className="w-full md:w-1/3 aspect-square rounded-full border-8 border-white/5 overflow-hidden shadow-premium">
+            <img src="https://images.unsplash.com/photo-1609147820717-b7650df4452a?auto=format&fit=crop&q=80&w=800" alt="Consulta" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
 
 const ClosingBanner = () => (
   <section className="py-32 bg-primary relative overflow-hidden">
