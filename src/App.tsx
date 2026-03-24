@@ -245,7 +245,7 @@ const Hero = () => {
           >
             <div className="aspect-[4/5] rounded-[60px] overflow-hidden shadow-premium relative z-10">
               <img 
-                src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&q=80&w=2070" 
+                src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=2070" 
                 alt="Clínica DUNO" 
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
@@ -335,7 +335,7 @@ const Philosophy = () => (
           <div className="relative">
             <div className="aspect-[4/5] rounded-[60px] overflow-hidden shadow-2xl">
               <img 
-                src="https://images.unsplash.com/photo-1552693673-1bf958298935?auto=format&fit=crop&q=80&w=1000" 
+                src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&q=80&w=1000" 
                 alt={`Filosofia ${CLINIC_CONFIG.logo}`} 
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
@@ -407,7 +407,7 @@ const About = () => (
         >
           <div className="aspect-[3/4] rounded-[100px] overflow-hidden shadow-2xl relative z-10">
             <img 
-              src="https://images.unsplash.com/photo-1559839734-2b71f1e3c770?auto=format&fit=crop&q=80&w=2070" 
+              src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=800" 
               alt={CLINIC_CONFIG.name} 
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
@@ -1205,7 +1205,7 @@ const VirtualAssessment = () => (
             </motion.a>
           </div>
           <div className="w-full md:w-1/3 aspect-square rounded-full border-8 border-white/5 overflow-hidden shadow-premium">
-            <img src="https://images.unsplash.com/photo-1609147820717-b7650df4452a?auto=format&fit=crop&q=80&w=800" alt="Consulta" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800" alt="Consulta" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
           </div>
         </div>
       </div>
