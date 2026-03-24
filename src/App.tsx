@@ -743,12 +743,12 @@ const Journey = () => (
           { step: "03", title: "Mock-up", desc: "Você testa o novo sorriso antes de iniciar o tratamento definitivo." },
           { step: "04", title: "Transformação", desc: "Execução precisa com as tecnologias mais avançadas." }
         ].map((item, i) => (
-          <div key={i} className="text-center">
-            <div className="w-16 h-16 bg-white border-4 border-accent rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl text-accent font-bold text-xl relative z-10">
+          <div key={i} className="text-center group">
+            <div className="w-16 h-16 bg-white border-4 border-accent rounded-full flex items-center justify-center mx-auto mb-8 shadow-xl text-accent font-bold text-xl relative z-10 transition-transform group-hover:scale-110">
               {item.step}
             </div>
-            <h4 className="text-xl font-bold text-slate-900 mb-3 font-display">{item.title}</h4>
-            <p className="text-slate-500 text-sm leading-relaxed">{item.desc}</p>
+            <h4 className="text-2xl font-bold text-slate-900 mb-4 font-display">{item.title}</h4>
+            <p className="text-slate-500 text-lg leading-relaxed font-light">{item.desc}</p>
           </div>
         ))}
       </div>
@@ -771,21 +771,31 @@ const FAQ = () => {
 
   return (
     <section id="faq" className="bg-white py-24">
-      <div className="max-w-3xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <span className="text-accent font-bold uppercase tracking-widest text-[10px] mb-4 block">DÚVIDAS FREQUENTES</span>
-          <h2 className="text-5xl font-display text-primary">Perguntas Comuns</h2>
+      <div className="max-w-4xl mx-auto px-6">
+        <div className="text-center mb-20">
+          <SectionTitle 
+            title="Dúvidas Frequentes" 
+            subtitle="Tudo o que você precisa saber para iniciar sua jornada de transformação com segurança."
+          />
         </div>
         
-        <div className="space-y-4">
+        <div className="space-y-6">
           {faqs.map((f, i) => (
-            <div key={i} className="bg-bg-soft rounded-xl overflow-hidden border border-slate-100">
+            <motion.div 
+              key={i} 
+              initial={false}
+              className={`rounded-[30px] overflow-hidden transition-all duration-500 border ${openIndex === i ? 'bg-white shadow-premium border-accent/20' : 'bg-bg-soft border-transparent hover:border-accent/10'}`}
+            >
               <button 
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full p-6 text-left flex justify-between items-center font-bold text-primary text-sm"
+                className="w-full p-8 md:p-10 text-left flex justify-between items-center group"
               >
-                {f.q}
-                <ChevronRight size={16} className={`text-accent transition-transform ${openIndex === i ? 'rotate-90' : ''}`} />
+                <span className={`text-xl md:text-2xl font-display font-bold transition-colors duration-300 ${openIndex === i ? 'text-accent' : 'text-primary group-hover:text-accent'}`}>
+                  {f.q}
+                </span>
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 ${openIndex === i ? 'bg-accent text-white rotate-180' : 'bg-white text-accent group-hover:bg-accent group-hover:text-white'}`}>
+                  {openIndex === i ? <Minus size={20} /> : <Plus size={20} />}
+                </div>
               </button>
               <AnimatePresence>
                 {openIndex === i && (
@@ -793,13 +803,15 @@ const FAQ = () => {
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    className="px-6 pb-6 text-text-muted text-xs leading-relaxed font-light"
+                    transition={{ duration: 0.5, ease: [0.04, 0.62, 0.23, 0.98] }}
                   >
-                    {f.a}
+                    <div className="px-8 md:px-12 pb-10 md:pb-12 text-text-muted text-lg md:text-xl leading-relaxed font-light max-w-3xl border-t border-slate-50 pt-8">
+                      {f.a}
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
