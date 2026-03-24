@@ -1,0 +1,97 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Grotesk:wght@300;500;700&display=swap');
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Playfair Display", serif;
+  --font-accent: "Space Grotesk", sans-serif;
+  
+  /* === PERSONALIZAÇÃO DUNO ODONTOLOGIA (AZUL & BRANCO) === */
+  --color-primary: #0F172A;      /* Azul Marinho Profundo */
+  --color-accent: #2563EB;       /* Azul Royal Vibrante */
+  --color-accent-light: #DBEAFE; /* Azul Pastel */
+  --color-bg-light: #FFFFFF;     /* Branco Puro */
+  --color-bg-soft: #F8FAFC;      /* Cinza Azulado Muito Claro */
+  --color-text-main: #1E293B;    /* Slate Escuro */
+  --color-text-muted: #64748B;   /* Slate Médio */
+  --color-whatsapp: #25D366;
+  
+  --shadow-premium: 0 20px 50px rgba(0, 0, 0, 0.05);
+}
+
+:root {
+  --radius: 0.5rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-sans text-text-main bg-bg-light antialiased;
+  }
+  
+  h1, h2, h3, .font-display {
+    @apply font-display;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-bg-soft;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-accent/20 rounded-full hover:bg-accent/40 transition-colors;
+  }
+}
+
+/* Animação de Pulso para o WhatsApp */
+@keyframes pulse-whatsapp {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+  70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+.animate-pulse-whatsapp {
+  animation: pulse-whatsapp 2s infinite;
+}
+
+/* Animação de Marquee para a Galeria */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Estilos Customizados */
+.glass-card {
+  @apply bg-white/80 backdrop-blur-xl border border-white/20 shadow-premium;
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary;
+}
+
+.btn-primary {
+  @apply bg-primary text-white px-8 py-4 rounded-full font-semibold transition-all hover:scale-105 active:scale-95 shadow-lg;
+}
+
+.section-padding {
+  @apply py-20 px-6 max-w-7xl mx-auto;
+}
+
+.card-premium {
+  @apply bg-white p-8 rounded-2xl shadow-[var(--shadow-premium)] border border-slate-100 transition-all hover:-translate-y-1;
+}
