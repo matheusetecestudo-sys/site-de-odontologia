@@ -139,30 +139,33 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 w-full bg-white shadow-xl py-6 flex flex-col items-center gap-4 md:hidden"
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            className="fixed inset-0 z-[60] bg-white flex flex-col items-center justify-center gap-8 md:hidden"
           >
+            <button className="absolute top-8 right-8 text-primary" onClick={() => setIsMenuOpen(false)}>
+              <X size={32} />
+            </button>
             {navLinks.map((link) => (
               <a 
                 key={link.name} 
                 href={link.href} 
                 onClick={() => setIsMenuOpen(false)}
-                className="text-slate-700 font-bold text-xs tracking-widest"
+                className="text-primary font-display font-bold text-3xl tracking-widest hover:text-accent transition-all"
               >
                 {link.name}
               </a>
             ))}
             <a 
               href={`https://wa.me/${CLINIC_CONFIG.whatsapp}?text=${encodeURIComponent(CLINIC_CONFIG.whatsappMsg)}`}
-              className="bg-accent text-white px-10 py-3 rounded-lg font-bold text-xs tracking-widest mt-2"
+              className="bg-accent text-white px-12 py-5 rounded-full font-bold text-xs tracking-widest mt-6 shadow-xl"
             >
-              WHATSAPP
+              AGENDAR AGORA
             </a>
           </motion.div>
         )}
@@ -195,7 +198,7 @@ const Hero = () => {
               <span className="text-accent font-accent font-bold uppercase tracking-[0.4em] text-[10px]">EXCELÊNCIA EM ODONTOLOGIA</span>
             </motion.div>
             
-            <h1 className="text-6xl md:text-8xl font-display text-primary leading-[0.9] mb-10">
+            <h1 className="text-5xl md:text-8xl font-display text-primary leading-[1] md:leading-[0.9] mb-10">
               Onde a Arte <br />
               Encontra a <br />
               <span className="italic text-accent">Precisão.</span>
@@ -240,14 +243,14 @@ const Hero = () => {
           </motion.div>
           
           <motion.div 
-            initial={{ opacity: 0, scale: 0.9, x: 50 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 0.9, y: 50 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
-            className="relative hidden lg:block"
+            className="relative mt-20 lg:mt-0"
           >
             <div className="aspect-[4/5] rounded-[60px] overflow-hidden shadow-premium relative z-10">
               <img 
-                src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=2070" 
+                src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&q=80&w=2070" 
                 alt="Clínica DUNO" 
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
@@ -259,7 +262,7 @@ const Hero = () => {
             <motion.div 
               animate={{ y: [0, -20, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -top-10 -right-10 glass-card p-8 rounded-[30px] z-20"
+              className="absolute -top-10 -right-10 glass-card p-8 rounded-[30px] z-20 hidden md:block"
             >
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-accent/10 rounded-2xl flex items-center justify-center text-accent">
@@ -275,7 +278,7 @@ const Hero = () => {
             <motion.div 
               animate={{ y: [0, 20, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute -bottom-10 -left-10 glass-card p-8 rounded-[30px] z-20"
+              className="absolute -bottom-10 -left-10 glass-card p-8 rounded-[30px] z-20 hidden md:block"
             >
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-accent/10 rounded-2xl flex items-center justify-center text-accent">
@@ -467,22 +470,22 @@ const Services = () => {
     { 
       title: "Lentes de Contato", 
       desc: "Facetas ultrafinas de porcelana que corrigem cor, formato e alinhamento para um sorriso perfeito e natural.", 
-      image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=800",
+      image: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&q=80&w=800",
       icon: <Sparkles />,
       tag: "ESTÉTICA",
       size: "large"
     },
     { 
       title: "Invisalign", 
-      desc: "O sistema de alinhadores transparentes mais avançado do mundo.", 
-      image: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&q=80&w=800",
+      desc: "O sistema de alinhadores transparentes mais avançado do mundo para um alinhamento discreto.", 
+      image: "https://images.unsplash.com/photo-1516062423079-7ca13cdc7f5a?auto=format&fit=crop&q=80&w=800",
       icon: <Zap />,
       tag: "ALINHAMENTO",
       size: "small"
     },
     { 
       title: "Implantes Premium", 
-      desc: "Recupere a função e a estética com tecnologia suíça.", 
+      desc: "Recupere a função e a estética com tecnologia suíça de alta precisão e durabilidade.", 
       image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=800",
       icon: <ShieldCheck />,
       tag: "REABILITAÇÃO",
@@ -490,7 +493,7 @@ const Services = () => {
     },
     { 
       title: "Harmonização", 
-      desc: "Equilíbrio perfeito entre o sorriso e as linhas da face.", 
+      desc: "Equilíbrio perfeito entre o sorriso e as linhas da face com protocolos minimamente invasivos.", 
       image: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=800",
       icon: <Star />,
       tag: "OROFACIAL",
@@ -498,15 +501,15 @@ const Services = () => {
     },
     { 
       title: "Clareamento", 
-      desc: "Tecnologia de ponta para um branqueamento seguro e resultados duradouros.", 
-      image: "https://images.unsplash.com/photo-1609840112855-9ab5af8f66e8?auto=format&fit=crop&q=80&w=800",
+      desc: "Tecnologia de ponta para um branqueamento seguro, indolor e com resultados imediatos.", 
+      image: "https://images.unsplash.com/photo-1445510491599-c391e8046a68?auto=format&fit=crop&q=80&w=800",
       icon: <Sparkles />,
       tag: "ESTÉTICA",
       size: "small"
     },
     { 
       title: "Check-up Digital", 
-      desc: "Prevenção com tecnologia de escaneamento 3D de alta precisão.", 
+      desc: "Prevenção com tecnologia de escaneamento 3D de alta precisão para diagnóstico precoce.", 
       image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800",
       icon: <CheckCircle2 />,
       tag: "PREVENÇÃO",
@@ -514,15 +517,15 @@ const Services = () => {
     },
     { 
       title: "Endodontia", 
-      desc: "Tratamentos de canal com precisão milimétrica e máximo conforto.", 
-      image: "https://images.unsplash.com/photo-1593054910314-d242f3607fc8?auto=format&fit=crop&q=80&w=800",
+      desc: "Tratamentos de canal com precisão microscópica garantindo máximo conforto e rapidez.", 
+      image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800",
       icon: <ShieldCheck />,
       tag: "ESPECIALIZADA",
       size: "small"
     },
     { 
       title: "Odontopediatria", 
-      desc: "O primeiro contato com o dentista de forma lúdica e acolhedora.", 
+      desc: "Cuidado especializado para crianças em um ambiente lúdico e totalmente acolhedor.", 
       image: "https://images.unsplash.com/photo-1601305410972-e15a1332f7a9?auto=format&fit=crop&q=80&w=800",
       icon: <Smile />,
       tag: "CUIDADO",
@@ -530,7 +533,7 @@ const Services = () => {
     },
     { 
       title: "Restaurações", 
-      desc: "Materiais bio-compatíveis que imitam a anatomia natural do dente.", 
+      desc: "Materiais bio-compatíveis que imitam a anatomia natural e a cor original do dente.", 
       image: "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&q=80&w=800",
       icon: <CheckCircle2 />,
       tag: "ESTÉTICA",
@@ -538,15 +541,15 @@ const Services = () => {
     },
     { 
       title: "Gengivoplastia", 
-      desc: "Correção estética da gengiva para um sorriso mais harmônico.", 
-      image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800",
+      desc: "Correção estética do tecido gengival para um sorriso mais harmônico e proporcional.", 
+      image: "https://images.unsplash.com/photo-1593054910314-d242f3607fc8?auto=format&fit=crop&q=80&w=800",
       icon: <Star />,
       tag: "CIRURGIA",
       size: "small"
     },
     { 
       title: "Cirurgia Oral", 
-      desc: "Extrações complexas e procedimentos cirúrgicos com sedação consciente.", 
+      desc: "Extrações complexas e procedimentos cirúrgicos realizados com segurança e sedação.", 
       image: "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=800",
       icon: <ShieldCheck />,
       tag: "CIRURGIA",
@@ -554,7 +557,7 @@ const Services = () => {
     },
     { 
       title: "Disfunção ATM", 
-      desc: "Tratamento especializado para dores na face, estalos e bruxismo.", 
+      desc: "Alívio e tratamento para dores na face, estalos mandíbulas e bruxismo severo.", 
       image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800",
       icon: <Zap />,
       tag: "ESPECIALIZADA",
@@ -562,7 +565,7 @@ const Services = () => {
     },
     { 
       title: "Ortodontia", 
-      desc: "Aparelhos fixos e estéticos para todas as fases da vida.", 
+      desc: "Aparelhos fixos estéticos e convencionais para todas as idades com precisão digital.", 
       image: "https://images.unsplash.com/photo-1516062423079-7ca13cdc7f5a?auto=format&fit=crop&q=80&w=800",
       icon: <Zap />,
       tag: "ALINHAMENTO",
@@ -578,15 +581,15 @@ const Services = () => {
           subtitle="Protocolos exclusivos que unem a precisão da odontologia moderna à sensibilidade estética."
         />
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 auto-rows-[300px]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 auto-rows-[380px]">
           {services.map((s, i) => (
             <motion.div 
               key={i} 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: (i % 3) * 0.1 }}
-              className={`relative rounded-[40px] overflow-hidden group shadow-premium border border-white/20 ${s.size === 'large' ? 'md:col-span-2' : 'md:col-span-1'}`}
+              className={`relative rounded-[50px] overflow-hidden group shadow-premium hover:shadow-2xl transition-all duration-700 border border-white/20 ${s.size === 'large' ? 'md:col-span-2' : 'md:col-span-1'}`}
             >
               <img 
                 src={s.image} 
@@ -594,20 +597,22 @@ const Services = () => {
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/30 to-transparent"></div>
               
-              <div className="absolute inset-0 p-10 flex flex-col justify-end">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="bg-accent text-white text-[9px] font-bold px-3 py-1 rounded-full tracking-widest uppercase">{s.tag}</span>
+              <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-end">
+                <div className="flex items-center gap-3 mb-4 md:translate-y-8 md:group-hover:translate-y-0 transition-transform duration-500">
+                  <span className="bg-accent text-white text-[9px] font-bold px-4 py-1.5 rounded-full tracking-widest uppercase shadow-lg shadow-accent/20">{s.tag}</span>
                 </div>
-                <h3 className="text-3xl font-display text-white mb-4">{s.title}</h3>
-                <p className="text-white/60 text-sm font-light max-w-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">{s.desc}</p>
+                <h3 className="text-2xl md:text-4xl font-display text-white mb-4 md:translate-y-8 md:group-hover:translate-y-0 transition-transform duration-500">{s.title}</h3>
+                <p className="text-white/70 text-xs md:text-sm font-light max-w-sm opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-700 md:translate-y-6 md:group-hover:translate-y-0 leading-relaxed mb-4 md:mb-0">
+                  {s.desc}
+                </p>
                 
                 <a 
                   href={`https://wa.me/${CLINIC_CONFIG.whatsapp}?text=Olá! Quero saber mais sobre ${s.title}`}
-                  className="mt-6 inline-flex items-center gap-2 text-accent font-bold text-[10px] tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  className="mt-4 md:mt-8 inline-flex items-center gap-3 text-accent font-bold text-[10px] tracking-widest uppercase opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-700 delay-100 md:translate-y-6 md:group-hover:translate-y-0"
                 >
-                  Saiba Mais <ArrowRight size={14} />
+                  Agendar Consulta <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform" />
                 </a>
               </div>
             </motion.div>
@@ -617,6 +622,7 @@ const Services = () => {
     </section>
   );
 };
+
 
 const VirtualAssessment = () => (
   <section className="py-24 bg-primary relative overflow-hidden">
@@ -847,9 +853,11 @@ const FloatingWhatsApp = () => (
     className="fixed bottom-8 right-8 z-[100] bg-[#25D366] text-white p-4 rounded-full shadow-2xl animate-pulse-whatsapp flex items-center justify-center group"
     aria-label="Falar no WhatsApp"
   >
-    <MessageCircle size={32} />
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .018 5.396.015 12.035c0 2.123.555 4.194 1.608 6.013l-1.707 6.236 6.38-1.674c1.756.957 3.738 1.461 5.753 1.462h.005c6.634 0 12.032-5.396 12.035-12.035a11.83 11.83 0 00-3.411-8.504z"/>
+    </svg>
     <span className="absolute right-full mr-4 bg-white text-slate-900 px-4 py-2 rounded-lg text-sm font-bold shadow-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-all pointer-events-none">
-      Fale com a gente agora!
+      Agende seu horário!
     </span>
   </a>
 );
@@ -871,13 +879,13 @@ const Portfolio = () => {
       title: "Lentes de Contato", 
       before: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=800",
       after: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&q=80&w=800",
-      desc: "Harmonização completa do sorriso com facetas ultrafinas."
+      desc: "Harmonização completa do sorriso com facetas ultrafinas de porcelana."
     },
     { 
       title: "Reabilitação Oral", 
       before: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=800",
-      after: "https://images.unsplash.com/photo-1445510491599-c391e8046a68?auto=format&fit=crop&q=80&w=800",
-      desc: "Recuperação funcional e estética de casos complexos."
+      after: "https://images.unsplash.com/photo-1597484662317-9bd773ee19ba?auto=format&fit=crop&q=80&w=800",
+      desc: "Recuperação funcional e estética de alta complexidade com fluxo digital."
     }
   ];
 
@@ -1072,26 +1080,30 @@ const MapSection = () => (
 const ClinicExperience = () => (
   <section className="py-24 bg-white overflow-hidden">
     <div className="max-w-7xl mx-auto px-6">
-      <div className="grid md:grid-cols-4 gap-4 auto-rows-[250px]">
-        <div className="md:col-span-2 md:row-span-2 rounded-[60px] overflow-hidden shadow-2xl relative group">
-          <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Consultório" />
+      <SectionTitle 
+        title="Nossa Estrutura" 
+        subtitle="Ambientes projetados para unir tecnologia digital ao máximo conforto e biossegurança."
+      />
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:auto-rows-[250px]">
+        <div className="md:col-span-2 md:row-span-2 h-[400px] md:h-full rounded-[40px] md:rounded-[60px] overflow-hidden shadow-2xl relative group">
+          <img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Consultório Moderno" />
           <div className="absolute inset-0 bg-primary/20"></div>
           <div className="absolute bottom-10 left-10 text-white">
-            <p className="text-[10px] uppercase tracking-widest font-bold mb-2">Infraestrutura</p>
-            <h4 className="text-3xl font-display">Tecnologia de Ponta</h4>
+            <p className="text-[10px] uppercase tracking-widest font-bold mb-2">Tecnologia</p>
+            <h4 className="text-2xl md:text-3xl font-display">Fluxo 100% Digital</h4>
           </div>
         </div>
-        <div className="rounded-[40px] overflow-hidden shadow-xl group">
-          <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Equipamento" />
+        <div className="h-[250px] md:h-full rounded-[40px] overflow-hidden shadow-xl group">
+          <img src="https://images.unsplash.com/photo-1593054910314-d242f3607fc8?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Equipamentos" />
         </div>
-        <div className="rounded-[40px] overflow-hidden shadow-xl group">
-          <img src="https://images.unsplash.com/photo-1516062423079-7ca13cdc7f5a?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Sala de Espera" />
+        <div className="h-[250px] md:h-full rounded-[40px] overflow-hidden shadow-xl group">
+          <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Biossegurança" />
         </div>
-        <div className="md:col-span-2 rounded-[50px] overflow-hidden shadow-xl group relative">
-          <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Equipe" />
+        <div className="md:col-span-2 h-[300px] md:h-full rounded-[40px] md:rounded-[50px] overflow-hidden shadow-xl group relative">
+          <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Sala de Espera" />
           <div className="absolute inset-0 bg-primary/10"></div>
           <div className="absolute bottom-8 right-8 text-white text-right">
-            <p className="text-2xl font-display">Cuidado Especializado</p>
+            <p className="text-xl md:text-2xl font-display">Conforto & Bem-Estar</p>
           </div>
         </div>
       </div>

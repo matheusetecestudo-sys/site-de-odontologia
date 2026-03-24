@@ -1,0 +1,3 @@
+Cole aqui suas imagens reais da clínica.
+Recomendamos o uso de arquivos .jpg ou .png de alta resolução.
+Você pode substituir as URLs no arquivo src/App.tsx pelos caminhos locais (ex: /images/clinica-1.jpg).
