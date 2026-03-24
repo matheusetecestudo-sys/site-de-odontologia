@@ -300,14 +300,29 @@ const Hero = () => {
 };
 
 const TrustedBrands = () => (
-  <section className="py-12 bg-white border-y border-slate-50">
+  <section className="py-20 bg-white border-y border-slate-50">
     <div className="max-w-7xl mx-auto px-6">
-      <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
-        {['Invisalign', 'Straumann', '3M', 'Dentsply Sirona', 'Nobel Biocare'].map((brand) => (
-          <span key={brand} className="text-xl md:text-2xl font-display font-bold text-primary tracking-widest hover:text-accent transition-all cursor-default">
-            {brand}
-          </span>
-        ))}
+      <div className="flex flex-wrap justify-center items-center gap-12 md:gap-32 opacity-50 grayscale hover:grayscale-0 transition-all duration-700">
+        {/* Invisalign */}
+        <div className="group/brand cursor-pointer">
+          <p className="text-2xl font-display font-bold text-primary group-hover/brand:text-accent transition-colors tracking-tight">Invisalign</p>
+        </div>
+        {/* Straumann */}
+        <div className="group/brand cursor-pointer">
+          <p className="text-2xl font-display font-bold text-primary group-hover/brand:text-accent transition-colors tracking-tight italic">straumann</p>
+        </div>
+        {/* 3M */}
+        <div className="group/brand cursor-pointer">
+          <p className="text-3xl font-accent font-bold text-primary group-hover/brand:text-accent transition-colors">3M</p>
+        </div>
+        {/* Dentsply */}
+        <div className="group/brand cursor-pointer">
+          <p className="text-xl font-display font-bold text-primary group-hover/brand:text-accent transition-colors uppercase tracking-widest">Dentsply Sirona</p>
+        </div>
+        {/* Nobel */}
+        <div className="group/brand cursor-pointer">
+          <p className="text-xl font-display font-bold text-primary group-hover/brand:text-accent transition-colors uppercase tracking-tighter">Nobel Biocare</p>
+        </div>
       </div>
     </div>
   </section>
@@ -1134,23 +1149,38 @@ export default function App() {
         {isLoading && (
           <motion.div 
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[200] bg-bg-soft flex flex-col items-center justify-center"
+            className="fixed inset-0 z-[200] bg-primary flex flex-col items-center justify-center overflow-hidden"
           >
+            {/* Blue Glow Background */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/20 rounded-full blur-[120px] pointer-events-none animate-pulse"></div>
+            
             <motion.div 
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              className="text-primary font-display text-6xl tracking-[0.3em] mb-8"
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="text-white font-display text-7xl md:text-8xl tracking-[0.4em] mb-12 relative"
             >
               {CLINIC_CONFIG.logo}
+              <div className="absolute -bottom-4 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-accent to-transparent opacity-50"></div>
             </motion.div>
-            <div className="w-48 h-[2px] bg-primary/5 relative overflow-hidden rounded-full">
+            
+            <div className="w-56 h-[3px] bg-white/10 relative overflow-hidden rounded-full shadow-inner">
               <motion.div 
                 initial={{ x: '-100%' }}
                 animate={{ x: '100%' }}
-                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute inset-0 bg-accent"
+                transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute inset-0 bg-accent shadow-[0_0_15px_rgba(37,99,235,0.8)]"
               />
             </div>
+            
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.5 }}
+              transition={{ delay: 0.5 }}
+              className="mt-8 text-white text-[9px] font-bold tracking-[0.5em] uppercase"
+            >
+              Preparando sua experiência
+            </motion.p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -1168,6 +1198,7 @@ export default function App() {
       <Testimonials />
       <Journey />
       <FAQ />
+      <ClosingBanner />
       <MapSection />
       <ContactSection />
       <Footer />
@@ -1191,5 +1222,35 @@ const ScrollProgress = () => {
     />
   );
 };
+
+const ClosingBanner = () => (
+  <section className="py-32 bg-primary relative overflow-hidden">
+    <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+      <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-accent rounded-full blur-[150px]"></div>
+    </div>
+    
+    <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+      >
+        <span className="text-accent font-bold uppercase tracking-[0.4em] text-[10px] mb-8 block">FECHE O SEU CICLO</span>
+        <h2 className="text-5xl md:text-8xl font-display text-white mb-12 leading-tight">
+          O Sorriso dos Seus Sonhos <br /> Está a um <span className="italic">Clique.</span>
+        </h2>
+        <motion.a 
+          href={`https://wa.me/${CLINIC_CONFIG.whatsapp}?text=${encodeURIComponent(CLINIC_CONFIG.whatsappMsg)}`}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="bg-accent text-white px-16 py-6 rounded-full font-bold text-[12px] tracking-[0.3em] uppercase shadow-2xl shadow-accent/40"
+        >
+          INICIAR TRANSFORMAÇÃO
+        </motion.a>
+      </motion.div>
+    </div>
+  </section>
+);
+
 
 
