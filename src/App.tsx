@@ -600,14 +600,14 @@ const Services = () => {
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/30 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/90 md:from-primary/100 via-primary/50 to-transparent group-hover:via-primary/70 transition-all duration-700"></div>
               
               <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-end">
                 <div className="flex items-center gap-3 mb-4 md:translate-y-8 md:group-hover:translate-y-0 transition-transform duration-500">
                   <span className="bg-accent text-white text-[9px] font-bold px-4 py-1.5 rounded-full tracking-widest uppercase shadow-lg shadow-accent/20">{s.tag}</span>
                 </div>
-                <h3 className="text-2xl md:text-4xl font-display text-white mb-4 md:translate-y-8 md:group-hover:translate-y-0 transition-transform duration-500">{s.title}</h3>
-                <p className="text-white/70 text-xs md:text-sm font-light max-w-sm opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-700 md:translate-y-6 md:group-hover:translate-y-0 leading-relaxed mb-4 md:mb-0">
+                <h3 className="text-2xl md:text-5xl font-display text-white mb-4 md:translate-y-8 md:group-hover:translate-y-0 transition-transform duration-500">{s.title}</h3>
+                <p className="text-white text-sm md:text-lg font-light max-w-sm opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-700 md:translate-y-6 md:group-hover:translate-y-0 leading-relaxed mb-4 md:mb-0">
                   {s.desc}
                 </p>
                 
@@ -1133,16 +1133,16 @@ export default function App() {
         {isLoading && (
           <motion.div 
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[200] bg-primary flex flex-col items-center justify-center"
+            className="fixed inset-0 z-[200] bg-bg-soft flex flex-col items-center justify-center"
           >
             <motion.div 
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              className="text-white font-display text-6xl tracking-[0.3em] mb-8"
+              className="text-primary font-display text-6xl tracking-[0.3em] mb-8"
             >
               {CLINIC_CONFIG.logo}
             </motion.div>
-            <div className="w-48 h-[1px] bg-white/10 relative overflow-hidden">
+            <div className="w-48 h-[2px] bg-primary/5 relative overflow-hidden rounded-full">
               <motion.div 
                 initial={{ x: '-100%' }}
                 animate={{ x: '100%' }}
