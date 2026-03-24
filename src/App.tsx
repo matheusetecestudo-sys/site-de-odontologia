@@ -39,7 +39,6 @@ const CLINIC_CONFIG = {
   experience: "20+ anos de excelência",
   whatsapp: "5511999999999",
   whatsappMsg: "Olá! Gostaria de agendar uma avaliação na DUNO.",
-  emergencyMsg: "URGÊNCIA: Preciso de atendimento odontológico agora.",
   city: "São Paulo, SP",
   address: "Av. Paulista, 1000 - Sala 1201",
   hours: "Seg - Sex: 08h às 19h",
@@ -1173,7 +1172,6 @@ export default function App() {
       <ContactSection />
       <Footer />
       <FloatingWhatsApp />
-      <EmergencyBadge />
     </div>
   );
 }
@@ -1194,15 +1192,4 @@ const ScrollProgress = () => {
   );
 };
 
-const EmergencyBadge = () => (
-  <motion.a 
-    href={`https://wa.me/${CLINIC_CONFIG.whatsapp}?text=${encodeURIComponent(CLINIC_CONFIG.emergencyMsg)}`}
-    initial={{ opacity: 0, x: 100 }}
-    animate={{ opacity: 1, x: 0 }}
-    whileHover={{ scale: 1.05 }}
-    className="fixed bottom-28 right-8 z-[100] bg-red-600 text-white px-6 py-3 rounded-full shadow-2xl flex items-center gap-3 border-2 border-white/20 group"
-  >
-    <div className="w-2 h-2 bg-white rounded-full animate-ping"></div>
-    <span className="text-[10px] font-bold tracking-[0.2em] uppercase">Urgências</span>
-  </motion.a>
-);
+
