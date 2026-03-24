@@ -305,7 +305,9 @@ const TrustedBrands = () => (
     <div className="max-w-7xl mx-auto px-6">
       <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
         {['Invisalign', 'Straumann', '3M', 'Dentsply Sirona', 'Nobel Biocare'].map((brand) => (
-          <span key={brand} className="text-xl font-display font-bold text-primary tracking-widest">{brand}</span>
+          <span key={brand} className="text-xl md:text-2xl font-display font-bold text-primary tracking-widest hover:text-accent transition-all cursor-default">
+            {brand}
+          </span>
         ))}
       </div>
     </div>
