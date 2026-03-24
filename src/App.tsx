@@ -28,15 +28,18 @@ import {
   Smile,
   Check
 } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, useScroll, useSpring } from 'motion/react';
 
 // === CONFIGURAÇÕES DO CLIENTE (Mude aqui) ===
 const CLINIC_CONFIG = {
   name: "Dra. Helena Silveira",
+  cro: "CRO-SP 123.456",
+  responsibility: "Diretora Técnica",
   specialty: "Odontologia Estética & Reabilitação",
   experience: "20+ anos de excelência",
   whatsapp: "5511999999999",
   whatsappMsg: "Olá! Gostaria de agendar uma avaliação na DUNO.",
+  emergencyMsg: "URGÊNCIA: Preciso de atendimento odontológico agora.",
   city: "São Paulo, SP",
   address: "Av. Paulista, 1000 - Sala 1201",
   hours: "Seg - Sex: 08h às 19h",
@@ -745,7 +748,9 @@ const FAQ = () => {
     { q: "Quanto tempo dura o tratamento com Invisalign?", a: "A duração varia conforme a complexidade de cada caso, mas em média os resultados são alcançados entre 6 a 18 meses." },
     { q: "As lentes de contato estragam os dentes?", a: "Não. Quando bem planejadas e executadas com técnicas minimamente invasivas, preservamos ao máximo a estrutura dental natural." },
     { q: "Qual a diferença entre implante e prótese?", a: "O implante substitui a raiz do dente perdido, enquanto a prótese substitui a coroa (parte visível). Juntos, devolvem a função completa." },
-    { q: "Como é feito o planejamento digital?", a: "Realizamos fotos, vídeos e escaneamento 3D para criar um projeto personalizado que você pode visualizar antes de começar." }
+    { q: "Como é feito o planejamento digital?", a: "Realizamos fotos, vídeos e escaneamento 3D para criar um projeto personalizado que você pode visualizar antes de começar." },
+    { q: "A clínica aceita convênios?", a: "Trabalhamos exclusivamente no modelo particular para garantir o tempo e a personalização necessários em cada procedimento. Emitimos notas para reembolso." },
+    { q: "Quais as formas de pagamento?", a: "Oferecemos condições facilitadas em até 12x no cartão, além de descontos para pagamento à vista via PIX ou transferência." }
   ];
 
   return (
@@ -837,7 +842,10 @@ const Footer = () => (
       </div>
       
       <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-500 text-[10px] uppercase tracking-[0.2em]">
-        <p>&copy; {new Date().getFullYear()} {CLINIC_CONFIG.logo}. Todos os direitos reservados.</p>
+        <div className="text-center md:text-left">
+          <p className="mb-2">&copy; {new Date().getFullYear()} {CLINIC_CONFIG.logo}. Todos os direitos reservados.</p>
+          <p className="text-slate-600 lowercase opacity-60 italic">{CLINIC_CONFIG.name} | {CLINIC_CONFIG.cro} | {CLINIC_CONFIG.responsibility}</p>
+        </div>
         <div className="flex gap-8">
           <a href="#" className="hover:text-white transition-colors">Privacidade</a>
           <a href="#" className="hover:text-white transition-colors">Termos</a>
@@ -1146,6 +1154,7 @@ export default function App() {
         )}
       </AnimatePresence>
 
+      <ScrollProgress />
       <Navbar />
       <Hero />
       <TrustedBrands />
@@ -1162,6 +1171,36 @@ export default function App() {
       <ContactSection />
       <Footer />
       <FloatingWhatsApp />
+      <EmergencyBadge />
     </div>
   );
 }
+
+const ScrollProgress = () => {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  return (
+    <motion.div
+      className="fixed top-0 left-0 right-0 h-1 bg-accent origin-left z-[100]"
+      style={{ scaleX }}
+    />
+  );
+};
+
+const EmergencyBadge = () => (
+  <motion.a 
+    href={`https://wa.me/${CLINIC_CONFIG.whatsapp}?text=${encodeURIComponent(CLINIC_CONFIG.emergencyMsg)}`}
+    initial={{ opacity: 0, x: 100 }}
+    animate={{ opacity: 1, x: 0 }}
+    whileHover={{ scale: 1.05 }}
+    className="fixed bottom-28 right-8 z-[100] bg-red-600 text-white px-6 py-3 rounded-full shadow-2xl flex items-center gap-3 border-2 border-white/20 group"
+  >
+    <div className="w-2 h-2 bg-white rounded-full animate-ping"></div>
+    <span className="text-[10px] font-bold tracking-[0.2em] uppercase">Urgências</span>
+  </motion.a>
+);
