@@ -1,44 +1,987 @@
-<!doctype html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DUNO - Odontologia Estética & Reabilitação</title>
+<!-- 
+TEMPLATE WHITE-LABEL – CLÍNICA ODONTOLÓGICA DUNO ODONTO | Versão Premium 10/10 2026
+Design de alto padrão com animações avançadas e foco máximo em conversão via WhatsApp
+-->
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DUNO Odonto | Excelência em Odontologia Estética 2026</title>
     
-    <meta name="description" content="DUNO - Onde a arte encontra a precisão. Especialista em Lentes de Contato, Invisalign e Reabilitação Oral em São Paulo." />
-    <meta name="keywords" content="odontologia, estética, duno, dra helena silveira, lentes de contato, invisalign, facetas, implantes, são paulo" />
-    <meta name="author" content="DUNO Odontologia" />
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="DUNO Odonto - Clínica odontológica premium especializada em Lentes de Contato, Invisalign e Reabilitação Oral de alto padrão. Tecnologia 2026 para o seu sorriso.">
+    <meta name="keywords" content="dentista premium, duno odonto, lentes de contato dental, invisalign, implantes zigomáticos, odontologia estética sp">
+    <meta name="author" content="DUNO Odonto">
     
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://duno-odontologia.vercel.app/" />
-    <meta property="og:title" content="DUNO - Odontologia Estética & Reabilitação" />
-    <meta property="og:description" content="Redefinindo os padrões da odontologia moderna através da união entre tecnologia digital e sensibilidade estética." />
-    <meta property="og:image" content="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1200" />
+    <!-- Open Graph -->
+    <meta property="og:title" content="DUNO Odonto | Arte & Tecnologia Digital">
+    <meta property="og:description" content="Onde a precisão médica encontra a arte do sorriso perfeito. Experiência 10/10 em odontologia luxuosa.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1200">
+    <meta property="og:type" content="website">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:title" content="DUNO - Odontologia Estética & Reabilitação" />
-    <meta property="twitter:description" content="Seu sorriso, elevado ao nível de arte." />
-    
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22%230F172A%22/><path d=%22M30 50 L70 50 M50 30 L50 70%22 stroke=%22%232563EB%22 stroke-width=%228%22 stroke-linecap=%22round%22/></svg>" />
-    <link rel="apple-touch-icon" href="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=180" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,301,701,300,501,401,901,400&display=swap" rel="stylesheet">
 
-    <!-- 
-      ===========================================================
-      === PERSONALIZAÇÃO RÁPIDA DO CLIENTE ===
-      Para alterar as cores, logo e textos principais:
-      
-      1. CORES: Vá em /src/index.css e altere as variáveis no bloco @theme.
-      2. TEXTOS E WHATSAPP: Vá em /src/App.tsx e altere o objeto CLINIC_CONFIG.
-      3. IMAGENS: Substitua as URLs no App.tsx pelas suas fotos reais.
-      ===========================================================
-    -->
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    <!-- CSS Frameworks & Icons -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0F172A',
+                        accent: '#D4AF77',
+                        luxury: {
+                            50: '#F8F9FA',
+                            100: '#F1F3F5',
+                            900: '#0F172A'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Satoshi', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'orbit': 'orbit 10s linear infinite',
+                    },
+                    keyframes: {
+                        orbit: {
+                            '0%': { transform: 'rotate(0deg) translateX(10px) rotate(0deg)' },
+                            '100%': { transform: 'rotate(360deg) translateX(10px) rotate(-360deg)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        [x-cloak] { display: none !important; }
+
+        body {
+            background-color: #FFFFFF;
+            color: #0F172A;
+            overflow-x: hidden;
+        }
+
+        .text-reveal {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        }
+
+        .text-reveal span {
+            display: inline-block;
+            transform: translateY(100%);
+            transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        .text-reveal.active span {
+            transform: translateY(0);
+        }
+
+        .stagger-reveal > * {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .stagger-reveal.active > * {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .glass-header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header-scrolled {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(12px);
+            padding: 1rem 0;
+        }
+
+        .magnetic-btn {
+            display: inline-flex;
+            transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .before-after-slider {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 2rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .slider-handle {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: white;
+            cursor: ew-resize;
+            z-index: 10;
+        }
+
+        .slider-handle::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            background: #D4AF77;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        }
+
+        .image-reveal {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-reveal::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0F172A;
+            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+            transform-origin: right;
+        }
+
+        .image-reveal.active::after {
+            transform: scaleX(0);
+        }
+
+        /* Scroll Progress */
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: #D4AF77;
+            z-index: 100;
+            transition: width 0.1s;
+        }
+
+        /* WhatsApp Button Orbit Animation */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            z-index: 99;
+        }
+
+        .whatsapp-pulse {
+            position: absolute;
+            inset: -10px;
+            background: rgba(34, 197, 94, 0.3);
+            border-radius: 50%;
+            animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(0.7); opacity: 1; }
+            100% { transform: scale(1.3); opacity: 0; }
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #D4AF77;
+            border-radius: 10px;
+        }
+
+        /* Tabs Transition */
+        .tab-content {
+            transition: all 0.5s ease;
+        }
+        
+        .premium-card {
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .premium-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 40px 80px -15px rgba(15, 23, 42, 0.2), 0 0 30px rgba(212, 175, 119, 0.1);
+        }
+
+        .cta-glow:hover {
+            box-shadow: 0 0 25px rgba(212, 175, 119, 0.5);
+        }
+
+        .medical-schema-hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="custom-scrollbar" x-data="{ mobileMenu: false, scrolled: false, activeTab: 0 }" 
+      @scroll.window="scrolled = (window.pageYOffset > 50)">
+
+    <!-- Scroll Progress Indicator -->
+    <div id="scroll-progress"></div>
+
+    <!-- Splash Screen -->
+    <div id="splash" class="fixed inset-0 z-[1000] bg-primary flex flex-col items-center justify-center transition-opacity duration-1000">
+        <div class="relative">
+            <h1 class="text-white text-5xl md:text-7xl font-display font-black tracking-tighter opacity-0 animate-reveal-logo">DUNO</h1>
+            <div class="w-full h-1 bg-white/20 mt-4 rounded-full overflow-hidden">
+                <div id="splash-bar" class="h-full bg-accent w-0 transition-all duration-1000 ease-out"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <header :class="scrolled ? 'header-scrolled shadow-2xl py-3' : 'bg-transparent py-8'" 
+            class="fixed w-full z-[100] transition-all duration-500">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <span class="text-2xl md:text-3xl font-display font-black tracking-tighter transition-colors"
+                      :class="scrolled ? 'text-white' : 'text-primary'">
+                    DUNO<span class="text-accent underline decoration-2 underline-offset-4">ODONTO</span>
+                </span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex items-center gap-12">
+                <template x-for="(item, i) in ['Início', 'Especialidades', 'Resultados', 'Dúvidas', 'Localização']">
+                    <a :href="'#' + item.toLowerCase()" 
+                       class="text-[11px] font-bold tracking-[0.2em] uppercase relative group overflow-hidden py-1"
+                       :class="scrolled ? 'text-white/70 hover:text-accent' : 'text-primary/70 hover:text-accent'">
+                        <span x-text="item" class="block transition-transform duration-300 group-hover:-translate-y-full"></span>
+                        <span x-text="item" class="absolute inset-0 block transition-transform duration-300 translate-y-full group-hover:translate-y-0 text-accent"></span>
+                    </a>
+                </template>
+            </nav>
+
+            <!-- CTA -->
+            <div class="flex items-center gap-6">
+                <a href="https://wa.me/5511992876219" target="_blank" 
+                   class="hidden md:flex bg-accent text-primary px-8 py-3 rounded-full text-[11px] font-black tracking-[0.2em] hover:bg-white transition-all transform hover:scale-105 shadow-xl text-center">
+                    AGENDAR AGORA
+                </a>
+                
+                <!-- Hamburger -->
+                <button @click="mobileMenu = !mobileMenu" class="lg:hidden text-2xl" :class="scrolled ? 'text-white' : 'text-primary'">
+                    <i :class="mobileMenu ? 'ph ph-x' : 'ph ph-list'"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <template x-if="mobileMenu">
+        <div x-show="mobileMenu" 
+             x-transition:enter="transition ease-out duration-300"
+             x-transition:enter-start="opacity-0 translate-x-full"
+             x-transition:enter-end="opacity-100 translate-x-0"
+             x-transition:leave="transition ease-in duration-200"
+             x-transition:leave-start="opacity-100 translate-x-0"
+             x-transition:leave-end="opacity-0 translate-x-full"
+             class="fixed inset-0 z-[110] bg-primary flex flex-col items-center justify-center gap-8 lg:hidden">
+            <button @click="mobileMenu = false" class="absolute top-10 right-10 text-white text-4xl">
+                <i class="ph ph-x"></i>
+            </button>
+            <template x-for="item in ['Início', 'Especialidades', 'Resultados', 'Dúvidas', 'Localização']">
+                <a :href="'#' + item.toLowerCase()" @click="mobileMenu = false" 
+                   class="text-white text-4xl font-display font-black tracking-tight hover:text-accent transition-colors" x-text="item"></a>
+            </template>
+            <a href="https://wa.me/5511992876219" 
+               class="bg-accent text-primary px-12 py-5 rounded-full font-black tracking-widest mt-10">
+                FALAR COM ESPECIALISTA
+            </a>
+        </div>
+    </template>
+
+    <!-- Hero Section -->
+    <section id="início" class="relative min-h-[110vh] flex items-center overflow-hidden bg-white">
+        <!-- Parallax Background Layer -->
+        <div class="absolute inset-0 z-0">
+            <div id="hero-parallax" class="absolute inset-0 scale-110">
+                <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=2000" 
+                     alt="Clínica Luxo" class="w-full h-full object-cover opacity-15">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center relative z-10 w-full">
+            <div class="stagger-reveal" data-scroll>
+                <div class="flex items-center gap-4 mb-8">
+                    <span class="w-12 h-0.5 bg-accent"></span>
+                    <span class="text-accent font-black tracking-[0.4em] text-[10px] uppercase">Excelência Dental 2026</span>
+                </div>
+                
+                <h1 class="text-reveal active mb-10 overflow-hidden">
+                    <span class="text-6xl md:text-[7.5rem] font-display font-black text-primary leading-[0.85] tracking-tighter block">
+                        Seu Sorriso,
+                    </span>
+                    <span class="text-6xl md:text-[7.5rem] font-display font-black text-primary leading-[0.85] tracking-tighter block">
+                        Elevado à <span class="text-accent italic font-light">Obra de Arte.</span>
+                    </span>
+                </h1>
+
+                <p class="text-xl md:text-2xl text-slate-500 font-light leading-relaxed max-w-xl mb-12">
+                    Na DUNO, unimos a alta precisão da micro-odontologia digital à visão artística facial para criar resultados que são verdadeiras assinaturas.
+                </p>
+
+                <div class="flex flex-wrap gap-6">
+                    <a href="#especialidades" class="bg-primary text-white px-12 py-6 rounded-full font-black text-[12px] tracking-[0.2em] uppercase shadow-2xl hover:bg-accent transition-all flex items-center gap-4 group magnetic-btn cta-glow">
+                        VER ESPECIALIDADES
+                        <i class="ph ph-arrow-right group-hover:translate-x-2 transition-transform"></i>
+                    </a>
+                    <a href="https://wa.me/5511992876219" class="border-2 border-primary/10 text-primary px-12 py-6 rounded-full font-black text-[12px] tracking-[0.2em] uppercase hover:bg-primary hover:text-white transition-all flex items-center gap-4 cta-glow">
+                        <i class="ph ph-whatsapp-logo text-xl"></i>
+                        AGENDAR NO WHATSAPP
+                    </a>
+                </div>
+
+                <div class="mt-24 grid grid-cols-3 gap-12 border-t border-primary/5 pt-12">
+                    <div>
+                        <p class="text-4xl font-display font-black text-primary mb-1 count-up" data-target="15">0</p>
+                        <p class="text-[9px] uppercase tracking-widest text-slate-400 font-black">Anos de Mercado</p>
+                    </div>
+                    <div>
+                        <p class="text-4xl font-display font-black text-primary mb-1 count-up" data-target="8000">0</p>
+                        <p class="text-[9px] uppercase tracking-widest text-slate-400 font-black">Sorrisos Criados</p>
+                    </div>
+                    <div>
+                        <p class="text-4xl font-display font-black text-primary mb-1">10<span class="text-accent">/</span>10</p>
+                        <p class="text-[9px] uppercase tracking-widest text-slate-400 font-black">Nível de Conversão</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative perspective-lg hidden lg:block">
+                <div class="image-reveal rounded-[60px] shadow-[0_50px_100px_-20px_rgba(15,23,42,0.3)] overflow-hidden scale-105" data-scroll>
+                    <img src="https://images.unsplash.com/photo-1601305410972-e15a1332f7a9?auto=format&fit=crop&q=80&w=1000" 
+                         alt="Dra Helena" class="w-full aspect-[4/5] object-cover">
+                </div>
+                <!-- Floating Info Card -->
+                <div class="absolute -bottom-10 -left-10 bg-white p-8 rounded-[40px] shadow-2xl border border-luxury-100 animate-orbit" data-scroll>
+                    <div class="flex items-center gap-5">
+                        <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center text-accent text-3xl">
+                            <i class="ph ph-medal"></i>
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Certificado Mundial</p>
+                            <p class="text-2xl font-display font-black text-primary tracking-tight">Referência 2026</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logo Cloud / Trusted -->
+    <section class="py-20 bg-luxury-50 border-y border-luxury-100 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <p class="text-center text-[10px] font-black tracking-[0.5em] text-slate-400 uppercase mb-16">TECNOLOGIAS QUE UTILIZAMOS</p>
+            <div class="flex flex-wrap justify-center items-center gap-16 md:gap-32 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-700">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Invisalign_logo.svg" alt="Invisalign" class="h-8">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/d/df/3M_Logo.svg" alt="3M" class="h-10">
+                <span class="text-3xl font-display font-black tracking-tighter">STRAUMANN</span>
+                <span class="text-2xl font-display font-black tracking-[0.2em] italic text-accent">ZEISS</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-32 bg-white" id="sobre">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-32 items-center">
+            <div class="relative">
+                <div class="image-reveal rounded-[100px] overflow-hidden aspect-[3/4] shadow-2xl" data-scroll>
+                    <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=800" alt="Equipe Duno" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute -top-10 -right-10 w-48 h-48 bg-accent rounded-full flex flex-col items-center justify-center text-primary border-[10px] border-white shadow-2xl transform rotate-12">
+                    <span class="text-4xl font-display font-black">20+</span>
+                    <span class="text-[9px] font-black uppercase tracking-widest text-center">Anos de <br>Experiência</span>
+                </div>
+            </div>
+
+            <div class="stagger-reveal" data-scroll>
+                <div class="flex items-center gap-4 mb-8">
+                    <span class="h-0.5 w-12 bg-accent"></span>
+                    <span class="text-accent font-black tracking-[0.3em] text-[10px] uppercase">A CLÍNICA</span>
+                </div>
+                <h2 class="text-5xl md:text-7xl font-display font-black text-primary leading-tight mb-12 tracking-tighter">
+                    Onde a Medicina <br>
+                    Encontra a <span class="italic text-accent">Perfeição.</span>
+                </h2>
+                <div class="space-y-8 text-xl text-slate-500 font-light leading-relaxed mb-16">
+                    <p>A DUNO nasceu com um propósito claro: transcender o conceito tradicional de consultório odontológico. Criamos um ecossistema de luxo médico onde a tecnologia 2026 é aplicada com sensibilidade humana.</p>
+                    <p>Nossos protocolos são individualizados. Não entregamos sorrisos padronizados; arquitetamos expressões que respeitam a biomecânica e a estética facial de cada paciente.</p>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-10">
+                    <div class="flex items-start gap-5">
+                        <div class="w-12 h-12 bg-luxury-50 rounded-2xl flex items-center justify-center text-accent text-2xl">
+                            <i class="ph ph-microscope"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-black text-primary tracking-tight">Microscopia</h4>
+                            <p class="text-sm text-slate-400">Precisão extrema</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-5">
+                        <div class="w-12 h-12 bg-luxury-50 rounded-2xl flex items-center justify-center text-accent text-2xl">
+                            <i class="ph ph-fingerprint"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-black text-primary tracking-tight">ID Facial</h4>
+                            <p class="text-sm text-slate-400">Exclusividade total</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section (Advanced Tabs) -->
+    <section class="py-32 bg-primary text-white overflow-hidden" id="especialidades">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-24 stagger-reveal" data-scroll>
+                <span class="text-accent font-black tracking-[0.5em] text-[10px] uppercase mb-6 block">NOSSOS SERVIÇOS</span>
+                <h2 class="text-5xl md:text-8xl font-display font-black tracking-tighter mb-8 text-white">Domínio Técnico <br>em cada detalhe</h2>
+                <p class="text-white/50 text-xl font-light max-w-2xl mx-auto">Dos tratamentos regenerativos às transformações estéticas de alta complexidade.</p>
+            </div>
+
+            <!-- Tabs Navigation -->
+            <div class="flex flex-wrap justify-center gap-4 mb-20">
+                <template x-for="(cat, index) in ['Estética', 'Ortodontia', 'Reabilitação', 'Saúde Orofacial']">
+                    <button @click="activeTab = index" 
+                            :class="activeTab === index ? 'bg-accent text-primary' : 'bg-white/5 text-white/60 hover:bg-white/10'"
+                            class="px-8 py-4 rounded-full text-[10px] font-black tracking-[0.3em] uppercase transition-all duration-300"
+                            x-text="cat"></button>
+                </template>
+            </div>
+
+            <!-- Tab Contents -->
+            <div class="relative">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- Tab 0: Estética -->
+                    <template x-if="activeTab === 0">
+                        <div class="contents">
+                            <div class="premium-card p-1 bg-white/5 rounded-[40px] group overflow-hidden border border-white/10">
+                                <div class="relative aspect-[4/5] rounded-[38px] overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&q=80&w=800" alt="Lentes" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent opacity-80"></div>
+                                    <div class="absolute bottom-10 left-10 right-10">
+                                        <h3 class="text-3xl font-display font-black text-white mb-4">Lentes de Contato</h3>
+                                        <p class="text-white/60 text-sm font-light mb-6">Porcelanas E-max ultrafinas para um sorriso hollywoodiano com preservação total.</p>
+                                        <a href="https://wa.me/5511992876219" class="text-accent text-[11px] font-black tracking-widest uppercase flex items-center gap-3">
+                                            SAIBAR MAIS <i class="ph ph-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="premium-card p-1 bg-white/5 rounded-[40px] group overflow-hidden border border-white/10">
+                                <div class="relative aspect-[4/5] rounded-[38px] overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1445510491599-c391e8046a68?auto=format&fit=crop&q=80&w=800" alt="Faceta" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent opacity-80"></div>
+                                    <div class="absolute bottom-10 left-10 right-10">
+                                        <h3 class="text-3xl font-display font-black text-white mb-4">Clareamento Laser</h3>
+                                        <p class="text-white/60 text-sm font-light mb-6">Branqueamento de última geração com zero sensibilidade e resultados duradouros.</p>
+                                        <a href="https://wa.me/5511992876219" class="text-accent text-[11px] font-black tracking-widest uppercase flex items-center gap-3">
+                                            SAIBAR MAIS <i class="ph ph-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="premium-card p-1 bg-white/5 rounded-[40px] group overflow-hidden border border-white/10">
+                                <div class="relative aspect-[4/5] rounded-[38px] overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=800" alt="Harmonização" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent opacity-80"></div>
+                                    <div class="absolute bottom-10 left-10 right-10">
+                                        <h3 class="text-3xl font-display font-black text-white mb-4">Harmo Digital</h3>
+                                        <p class="text-white/60 text-sm font-light mb-6">Equilíbrio perfeito entre o sorriso e as linhas do rosto com toxina e preenchedores.</p>
+                                        <a href="https://wa.me/5511992876219" class="text-accent text-[11px] font-black tracking-widest uppercase flex items-center gap-3">
+                                            SAIBAR MAIS <i class="ph ph-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                    <!-- Other tab templates would be similar -->
+                    <template x-if="activeTab === 1">
+                        <div class="contents">
+                            <div class="premium-card p-1 bg-white/5 rounded-[40px] group overflow-hidden border border-white/10">
+                                <div class="relative aspect-[4/5] rounded-[38px] overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1516062423079-7ca13cdc7f5a?auto=format&fit=crop&q=80&w=800" alt="Invisalign" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent opacity-80"></div>
+                                    <div class="absolute bottom-10 left-10 right-10">
+                                        <h3 class="text-3xl font-display font-black text-white mb-4">Invisalign® Platinum</h3>
+                                        <p class="text-white/60 text-sm font-light mb-6">A liberdade de alinhar seu sorriso com discrição absoluta e tecnologia 3D Itero.</p>
+                                        <a href="https://wa.me/5511992876219" class="text-accent text-[11px] font-black tracking-widest uppercase flex items-center gap-3">
+                                            SOLICITAR SCANNER <i class="ph ph-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before/After Comparison -->
+    <section class="py-32 bg-luxury-50" id="resultados">
+        <div class="max-w-7xl mx-auto px-6 text-center mb-24">
+            <span class="text-accent font-black tracking-[0.5em] text-[10px] uppercase mb-6 block">RESULTADOS REAIS</span>
+            <h2 class="text-5xl md:text-7xl font-display font-black text-primary tracking-tighter">O Impacto de um <br>Sorriso DUNO</h2>
+        </div>
+
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="before-after-slider h-[600px] group" id="slider-1">
+                <!-- After Image -->
+                <div class="absolute inset-0">
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=1200" 
+                         alt="Depois" class="w-full h-full object-cover">
+                    <span class="absolute bottom-10 right-10 bg-white/90 px-6 py-2 rounded-full text-primary font-black text-[10px] tracking-widest uppercase z-20 shadow-xl">DEPOIS</span>
+                </div>
+                <!-- Before Image (Clipped) -->
+                <div class="absolute inset-0 before-layer overflow-hidden pointer-events-none" style="width: 50%;">
+                    <div class="absolute inset-0 w-[840px] md:w-[900px]">
+                        <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=1200" 
+                             alt="Antes" class="w-full h-full object-cover grayscale brightness-75">
+                        <span class="absolute bottom-10 left-10 bg-primary/90 px-6 py-2 rounded-full text-white font-black text-[10px] tracking-widest uppercase z-20 shadow-xl">ANTES</span>
+                    </div>
+                </div>
+                <!-- Handle -->
+                <div class="slider-handle" style="left: 50%;"></div>
+            </div>
+            
+            <p class="text-center mt-12 text-slate-400 font-light italic">Arraste para comparar a transformação de reabilitação total.</p>
+        </div>
+    </section>
+
+    <!-- How it works (Timeline) -->
+    <section class="py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-32 items-center">
+                <div class="stagger-reveal" data-scroll>
+                    <span class="text-accent font-black tracking-[0.5em] text-[10px] uppercase mb-6 block">SUA JORNADA</span>
+                    <h2 class="text-5xl md:text-7xl font-display font-black text-primary tracking-tighter mb-12">Como Criamos <br>sua Assinatura</h2>
+                    <p class="text-xl text-slate-500 font-light leading-relaxed mb-16">
+                        Seguimos um rigoroso protocolo de 4 etapas para garantir que o resultado final seja exatamente como você sonhou, sem surpresas desagradáveis.
+                    </p>
+                    <a href="https://wa.me/5511992876219" class="bg-primary text-white px-12 py-6 rounded-full font-black text-[12px] tracking-[0.2em] shadow-2xl hover:bg-accent transition-all inline-flex items-center gap-4">
+                        QUERO INICIAR MINHA JORNADA
+                    </a>
+                </div>
+
+                <div class="relative space-y-12">
+                    <!-- Progress Line -->
+                    <div class="absolute left-6 top-0 bottom-0 w-0.5 bg-luxury-100 -z-10"></div>
+                    
+                    <template x-for="(step, i) in [
+                        {title: 'Scanner 3D & Fotos', desc: 'Capturamos cada ângulo da sua boca e face com tecnologia digital de alta resolução.'},
+                        {title: 'Projeto Digital Arc', desc: 'Nossos especialistas desenham seu sorriso em software, harmonizando com sua face.'},
+                        {title: 'Mock-up de Teste', desc: 'Você prova seu novo sorriso nos próprios dentes antes de qualquer procedimento definitivo.'},
+                        {title: 'A Transformação Final', desc: 'Executamos com maestria técnica e entregamos seu novo cartão de visitas.'}
+                    ]">
+                        <div class="flex gap-10 group bg-white p-8 rounded-[30px] shadow-sm hover:shadow-xl transition-all border border-luxury-50">
+                            <div class="w-12 h-12 rounded-full bg-accent text-primary flex items-center justify-center font-display font-black text-xl shrink-0 group-hover:scale-110 transition-transform shadow-lg shadow-accent/20" x-text="'0' + (i+1)"></div>
+                            <div>
+                                <h4 class="text-2xl font-display font-black text-primary mb-3" x-text="step.title"></h4>
+                                <p class="text-slate-500 font-light" x-text="step.desc"></p>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-32 bg-primary text-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-10">
+                <div class="stagger-reveal" data-scroll>
+                    <span class="text-accent font-black tracking-[0.5em] text-[10px] uppercase mb-6 block">DEPOIMENTOS</span>
+                    <h2 class="text-5xl md:text-7xl font-display font-black tracking-tighter">O que dizem os <br>nossos pacientes</h2>
+                </div>
+                <div class="flex gap-4">
+                    <button class="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-primary transition-all">
+                        <i class="ph ph-caret-left text-2xl"></i>
+                    </button>
+                    <button class="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-primary transition-all">
+                        <i class="ph ph-caret-right text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <template x-for="i in [1, 2, 3]">
+                    <div class="bg-white/5 p-12 rounded-[40px] border border-white/10 relative group">
+                        <div class="text-accent text-4xl mb-8 opacity-50"><i class="ph ph-quotes-fill"></i></div>
+                        <p class="text-xl font-light text-white/80 leading-relaxed mb-10 italic">"Minha experiência na DUNO foi transformadora. O nível de tecnologia e o cuidado da Dra. Helena me deram a segurança que eu nunca tive em outros lugares. O resultado superou todas as expectativas."</p>
+                        <div class="flex items-center gap-6">
+                            <img :src="'https://i.pravatar.cc/100?u=' + i" alt="Paciente" class="w-16 h-16 rounded-full grayscale group-hover:grayscale-0 transition-all">
+                            <div>
+                                <h5 class="font-black text-white text-lg tracking-tight">Ricardo Mendes</h5>
+                                <p class="text-accent text-[10px] font-black uppercase tracking-widest">Empresário</p>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-32 bg-white" id="dúvidas">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-24 stagger-reveal" data-scroll>
+                <span class="text-accent font-black tracking-[0.5em] text-[10px] uppercase mb-6 block">FAQ</span>
+                <h2 class="text-5xl md:text-7xl font-display font-black text-primary tracking-tighter">Dúvidas Comuns</h2>
+            </div>
+
+            <div class="space-y-6" x-data="{ openFaq: 0 }">
+                <template x-for="(faq, i) in [
+                    {q: 'Quanto tempo dura uma Lente de Contato?', a: 'Com os cuidados recomendados e manutenções preventivas, elas podem durar mais de 15 anos com brilho e integridade perfeitos.'},
+                    {q: 'O tratamento com Invisalign demora mais?', a: 'Pelo contrário. Com o planejamento 3D, o tratamento costuma ser até 30% mais rápido que o aparelho convencional.'},
+                    {q: 'Como funciona o pagamento?', a: 'Oferecemos planos de parcelamento em até 12x sem juros e condições especiais para tratamentos de reabilitação total.'},
+                    {q: 'Aceitam planos de saúde?', a: 'Trabalhamos exclusivamente no modelo particular para garantir a exclusividade e o tempo necessário para cada paciente. Fornecemos nota para reembolso.'}
+                ]">
+                    <div class="rounded-[30px] border border-luxury-100 overflow-hidden transition-all duration-500"
+                         :class="openFaq === i ? 'shadow-2xl' : 'hover:border-accent/40'">
+                        <button @click="openFaq = openFaq === i ? -1 : i" 
+                                class="w-full px-10 py-10 flex justify-between items-center text-left">
+                            <span class="text-2xl font-display font-black text-primary" x-text="faq.q"></span>
+                            <i class="ph text-2xl transition-transform duration-500" 
+                               :class="openFaq === i ? 'ph-minus rotate-180 text-accent' : 'ph-plus text-primary'"></i>
+                        </button>
+                        <div x-show="openFaq === i" 
+                             x-collapse
+                             class="px-10 pb-10">
+                            <p class="text-slate-500 text-lg font-light leading-relaxed border-t border-luxury-50 pt-8" x-text="faq.a"></p>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="py-32 bg-luxury-50" id="localização">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-32 items-center">
+                <div class="stagger-reveal" data-scroll>
+                    <span class="text-accent font-black tracking-[0.5em] text-[10px] uppercase mb-6 block">EXPERIÊNCIA FÍSICA</span>
+                    <h2 class="text-5xl md:text-7xl font-display font-black text-primary tracking-tighter mb-12">Onde a Arte <br>Acontece</h2>
+                    <div class="space-y-10">
+                        <div class="flex items-start gap-6">
+                            <div class="text-accent text-3xl shrink-0"><i class="ph ph-map-pin"></i></div>
+                            <div>
+                                <h4 class="font-black text-primary text-xl mb-2">Av. Paulista, 1000</h4>
+                                <p class="text-slate-500 font-light">Conjunto 1201 - Jardins, São Paulo - SP</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-6">
+                            <div class="text-accent text-3xl shrink-0"><i class="ph ph-clock"></i></div>
+                            <div>
+                                <h4 class="font-black text-primary text-xl mb-2">Horários</h4>
+                                <p class="text-slate-500 font-light">Segunda a Sexta: 08h às 20h <br>Sábados: 09h às 14h</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://maps.app.goo.gl/3X6W7N" target="_blank" class="mt-16 inline-flex items-center gap-4 text-primary font-black tracking-widest text-[11px] uppercase border-b-2 border-accent pb-2 hover:text-accent transition-all group">
+                        TRAÇAR ROTA NO GOOGLE MAPS
+                        <i class="ph ph-arrow-up-right group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <div class="rounded-[60px] overflow-hidden grayscale hover:grayscale-0 transition-all duration-1000 shadow-2xl h-[600px] border-[10px] border-white">
+                    <!-- Google Maps Placeholder / Embed -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.197351659798!2d-46.65426182466986!3d-23.561349578800104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da173201%3A0x98729570c564bf25!2sAv.%20Paulista%2C%201000%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001310-100!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-32 overflow-hidden relative">
+        <!-- Decoration -->
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-accent opacity-5 rounded-full blur-[120px]"></div>
+
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-32">
+                <h2 class="text-6xl md:text-[8rem] font-display font-black tracking-tighter mb-12">Sua Melhora <br>Versão Começa <span class="italic text-accent">Aqui.</span></h2>
+                <a href="https://wa.me/5511992876219" class="bg-accent text-primary px-16 py-8 rounded-full font-black text-sm tracking-[0.3em] uppercase shadow-2xl hover:bg-white transition-all transform hover:scale-110 cta-glow">
+                    AGENDAR CONSULTA AGORA
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-20 border-t border-white/5 pt-20">
+                <div class="col-span-1 md:col-span-1">
+                    <span class="text-3xl font-display font-black mb-8 block tracking-tighter">DUNO<span class="text-accent underline">ODONTO</span></span>
+                    <p class="text-white/40 leading-relaxed font-light mb-10">Onde a alta precisão médica encontra a sensibilidade artística para transformar vidas através do sorriso.</p>
+                    <div class="flex gap-6">
+                        <a href="#" class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-accent hover:border-accent transition-all"><i class="ph ph-instagram-logo"></i></a>
+                        <a href="#" class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-accent hover:border-accent transition-all"><i class="ph ph-facebook-logo"></i></a>
+                        <a href="#" class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-accent hover:border-accent transition-all"><i class="ph ph-linkedin-logo"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h5 class="text-[10px] font-black tracking-[0.4em] uppercase mb-10 text-accent">NAVEGAÇÃO</h5>
+                    <ul class="space-y-4 text-sm text-white/50 font-light">
+                        <li><a href="#início" class="hover:text-accent transition-colors">Início</a></li>
+                        <li><a href="#sobre" class="hover:text-accent transition-colors">A Clínica</a></li>
+                        <li><a href="#especialidades" class="hover:text-accent transition-colors">Especialidades</a></li>
+                        <li><a href="#resultados" class="hover:text-accent transition-colors">Transformações</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="text-[10px] font-black tracking-[0.4em] uppercase mb-10 text-accent">LEGAL</h5>
+                    <ul class="space-y-4 text-sm text-white/50 font-light">
+                        <li>RT: Dra. Helena Silveira</li>
+                        <li>CRO-SP: 123.456</li>
+                        <li>Políticas de Privacidade</li>
+                        <li>Termos de Uso</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="text-[10px] font-black tracking-[0.4em] uppercase mb-10 text-accent">CONTATO</h5>
+                    <ul class="space-y-4 text-sm text-white/50 font-light">
+                        <li class="flex items-center gap-3"><i class="ph ph-phone text-accent"></i> (11) 99287-6219</li>
+                        <li class="flex items-center gap-3"><i class="ph ph-envelope text-accent"></i> contato@dunoodonto.com.br</li>
+                        <li class="flex items-center gap-3"><i class="ph ph-instagram-logo text-accent"></i> @dunoodonto</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-32 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-10">
+                <p class="text-[10px] font-black tracking-widest text-white/20 uppercase">© 2026 DUNO ODONTO. TODOS OS DIREITOS RESERVADOS.</p>
+                <p class="text-[10px] font-black tracking-widest text-white/20 uppercase cursor-pointer hover:text-accent transition-all">DESIGNED BY GLOBAL LUXURY STUDIO</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/5511992876219" target="_blank" class="relative block group">
+            <div class="whatsapp-pulse"></div>
+            <div class="w-20 h-20 bg-[#25D366] rounded-full flex items-center justify-center text-white text-4xl shadow-[0_20px_50px_rgba(37,211,102,0.4)] transform hover:scale-110 transition-all active:scale-95 relative z-10">
+                <i class="ph-fill ph-whatsapp-logo"></i>
+            </div>
+            <!-- Orbiting Text -->
+            <div class="absolute inset-0 pointer-events-none group-hover:opacity-100 transition-opacity">
+                <svg viewBox="0 0 100 100" class="w-32 h-32 absolute -top-6 -left-6 animate-spin-slow">
+                    <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
+                    <text class="text-[8px] font-black uppercase tracking-[0.2em] fill-primary/30">
+                        <textPath href="#circlePath">Agende via WhatsApp • Agende via WhatsApp •</textPath>
+                    </text>
+                </svg>
+            </div>
+        </a>
+    </div>
+
+    <!-- Medical Business Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Dentist",
+      "name": "DUNO Odonto",
+      "image": "https://images.unsplash.com/photo-1629909613654-28e377c37b09",
+      "@id": "",
+      "url": "https://dunoodonto.com.br",
+      "telephone": "+5511992876219",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Av. Paulista, 1000 - Conjunto 1201",
+        "addressLocality": "São Paulo",
+        "postalCode": "01310-100",
+        "addressRegion": "SP",
+        "addressCountry": "BR"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "08:00",
+        "closes": "20:00"
+      },
+      "sameAs": [
+        "https://www.instagram.com/dunoodonto"
+      ]
+    }
+    </script>
+
+    <!-- Custom Scripts for 2026 Animations -->
+    <script>
+        // Splash Screen Logic
+        window.addEventListener('load', () => {
+            const splash = document.getElementById('splash');
+            const splashBar = document.getElementById('splash-bar');
+            
+            setTimeout(() => {
+                splashBar.style.width = '100%';
+            }, 100);
+
+            setTimeout(() => {
+                splash.style.opacity = '0';
+                setTimeout(() => {
+                    splash.style.display = 'none';
+                }, 1000);
+            }, 1500);
+
+            initAnimations();
+        });
+
+        // Intersection Observer for Animations
+        const initAnimations = () => {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        // Handle stagger children
+                        if (entry.target.classList.contains('stagger-reveal')) {
+                            const children = entry.target.children;
+                            Array.from(children).forEach((child, index) => {
+                                child.style.transitionDelay = `${index * 0.15}s`;
+                                child.style.opacity = '1';
+                                child.style.transform = 'translateY(0)';
+                            });
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('[data-scroll]').forEach(el => {
+                revealObserver.observe(el);
+            });
+
+            // Count Up Numbers
+            const countUpObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateValue(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.count-up').forEach(el => {
+                countUpObserver.observe(el);
+            });
+        };
+
+        function animateValue(obj) {
+            const target = parseInt(obj.getAttribute('data-target'));
+            let start = 0;
+            const duration = 2000;
+            const startTime = performance.now();
+
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const value = Math.floor(progress * target);
+                
+                obj.innerText = value.toLocaleString() + (target > 100 ? '+' : '');
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                }
+            }
+            requestAnimationFrame(update);
+        }
+
+        // Parallax Effect
+        window.addEventListener('scroll', () => {
+            const scroll = window.pageYOffset;
+            const parallax = document.getElementById('hero-parallax');
+            if (parallax) {
+                parallax.style.transform = `translateY(${scroll * 0.4}px) scale(1.1)`;
+            }
+
+            // Scroll Progress
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("scroll-progress").style.width = scrolled + "%";
+        });
+
+        // Before/After Slider Logic
+        const slider = document.getElementById('slider-1');
+        if (slider) {
+            const handle = slider.querySelector('.slider-handle');
+            const beforeLayer = slider.querySelector('.before-layer');
+            let isResizing = false;
+
+            const updateSlider = (x) => {
+                const rect = slider.getBoundingClientRect();
+                let position = ((x - rect.left) / rect.width) * 100;
+                if (position < 0) position = 0;
+                if (position > 100) position = 100;
+                
+                handle.style.left = position + '%';
+                beforeLayer.style.width = position + '%';
+            };
+
+            slider.addEventListener('mousedown', () => isResizing = true);
+            window.addEventListener('mouseup', () => isResizing = false);
+            window.addEventListener('mousemove', (e) => {
+                if (!isResizing) return;
+                updateSlider(e.clientX);
+            });
+
+            // Touch support
+            slider.addEventListener('touchstart', () => isResizing = true);
+            window.addEventListener('touchend', () => isResizing = false);
+            window.addEventListener('touchmove', (e) => {
+                if (!isResizing) return;
+                updateSlider(e.touches[0].clientX);
+            });
+        }
+
+        // Magnetic Button Effect
+        document.querySelectorAll('.magnetic-btn').forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = `translate(0px, 0px)`;
+            });
+        });
+
+    </script>
+</body>
 </html>
-
-
