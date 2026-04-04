@@ -36,12 +36,11 @@ Design de alto padrão com animações avançadas e foco máximo em conversão v
             theme: {
                 extend: {
                     colors: {
-                        primary: '#0EA5E9',
-                        navy: '#0F172A',
-                        accent: '#F0F9FF',
+                        primary: '#0F172A',
+                        accent: '#0EA5E9',
                         luxury: {
-                            50: '#F0F9FF',
-                            100: '#E0F2FE',
+                            50: '#F8FAFC',
+                            100: '#F1F5F9',
                             900: '#0F172A'
                         }
                     },
@@ -106,10 +105,10 @@ Design de alto padrão com animações avançadas e foco máximo em conversão v
         }
 
         .header-scrolled {
-            background: rgba(14, 165, 233, 0.98);
+            background: rgba(15, 23, 42, 0.98);
             backdrop-filter: blur(12px);
             padding: 0.8rem 0;
-            border-bottom: 2px solid #0F172A;
+            border-bottom: 2px solid #0EA5E9;
         }
 
         .magnetic-btn {
@@ -219,16 +218,43 @@ Design de alto padrão com animações avançadas e foco máximo em conversão v
             transition: all 0.5s ease;
         }
         
-        .premium-card {
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .premium-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 40px 80px -15px rgba(15, 23, 42, 0.2), 0 0 30px rgba(212, 175, 119, 0.1);
+        .custom-cursor {
+            width: 20px;
+            height: 20px;
+            background: #0EA5E9;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 10000;
+            transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease, background 0.3s ease;
+            mix-blend-mode: difference;
         }
 
-        .cta-glow:hover {
-            box-shadow: 0 0 25px rgba(212, 175, 119, 0.5);
+        .custom-cursor-follower {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(14, 165, 233, 0.5);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 10000;
+            transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease;
+        }
+
+        .premium-card {
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .premium-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 40px 90px -20px rgba(15, 23, 42, 0.25);
+        }
+
+        .text-reveal-mask {
+            clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+            transition: clip-path 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+        .text-reveal-mask.active {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
         }
 
         .medical-schema-hidden {
@@ -239,12 +265,16 @@ Design de alto padrão com animações avançadas e foco máximo em conversão v
 <body class="custom-scrollbar" x-data="{ mobileMenu: false, scrolled: false, activeTab: 0 }" 
       @scroll.window="scrolled = (window.pageYOffset > 50)">
 
+    <!-- Custom Cursor -->
+    <div class="custom-cursor hidden lg:block" id="cursor"></div>
+    <div class="custom-cursor-follower hidden lg:block" id="cursor-follower"></div>
+
     <!-- Scroll Progress Indicator -->
     <div id="scroll-progress"></div>
 
     <!-- Splash Screen -->
     <div id="splash" class="fixed inset-0 z-[1000] bg-primary flex flex-col items-center justify-center transition-opacity duration-1000">
-        <div class="relative">
+        <div class="relative text-center">
             <h1 class="text-white text-5xl md:text-7xl font-display font-black tracking-tighter opacity-0 animate-reveal-logo">DUNO</h1>
             <div class="w-full h-1 bg-white/20 mt-4 rounded-full overflow-hidden">
                 <div id="splash-bar" class="h-full bg-accent w-0 transition-all duration-1000 ease-out"></div>
@@ -253,14 +283,15 @@ Design de alto padrão com animações avançadas e foco máximo em conversão v
     </div>
 
     <!-- Navigation -->
+    <!-- Navigation -->
     <header :class="scrolled ? 'header-scrolled shadow-2xl' : 'bg-white py-6 border-b border-slate-100'" 
             class="fixed w-full z-[100] transition-all duration-500">
         <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
             <!-- Logo -->
             <a href="#" class="flex items-center gap-3 group">
                 <span class="text-2xl md:text-3xl font-display font-black tracking-tighter transition-colors"
-                      :class="scrolled ? 'text-white' : 'text-navy'">
-                    DUNO<span class="text-primary underline decoration-2 underline-offset-4">ODONTO</span>
+                      :class="scrolled ? 'text-white' : 'text-primary'">
+                    DUNO<span class="text-accent underline decoration-2 underline-offset-4">ODONTO</span>
                 </span>
             </a>
 
@@ -269,9 +300,9 @@ Design de alto padrão com animações avançadas e foco máximo em conversão v
                 <template x-for="(item, i) in ['Início', 'Especialidades', 'Resultados', 'Dúvidas', 'Localização']">
                     <a :href="'#' + item.toLowerCase()" 
                        class="text-[11px] font-black tracking-[0.2em] uppercase relative group overflow-hidden py-1"
-                       :class="scrolled ? 'text-white/80 hover:text-white' : 'text-navy/70 hover:text-primary'">
+                       :class="scrolled ? 'text-white/80 hover:text-white' : 'text-primary/70 hover:text-accent'">
                         <span x-text="item" class="block transition-transform duration-300 group-hover:-translate-y-full"></span>
-                        <span x-text="item" class="absolute inset-0 block transition-transform duration-300 translate-y-full group-hover:translate-y-0 text-primary"></span>
+                        <span x-text="item" class="absolute inset-0 block transition-transform duration-300 translate-y-full group-hover:translate-y-0 text-accent"></span>
                     </a>
                 </template>
             </nav>
@@ -279,7 +310,7 @@ Design de alto padrão com animações avançadas e foco máximo em conversão v
             <!-- CTA -->
             <div class="flex items-center gap-6">
                 <a href="https://wa.me/5511992876219" target="_blank" 
-                   class="hidden md:flex bg-navy text-white px-8 py-3 rounded-full text-[11px] font-black tracking-[0.2em] hover:bg-primary transition-all transform hover:scale-105 shadow-xl text-center">
+                   class="hidden md:flex bg-primary text-white px-8 py-3 rounded-full text-[11px] font-black tracking-[0.2em] hover:bg-accent transition-all transform hover:scale-105 shadow-xl text-center">
                     AGENDAR AGORA
                 </a>
                 
@@ -323,38 +354,38 @@ Design de alto padrão com animações avançadas e foco máximo em conversão v
                 <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=2000" 
                      alt="Clínica Luxo" class="w-full h-full object-cover opacity-10">
             </div>
-            <!-- Vibrant Dual Blue Gradient -->
-            <div class="absolute inset-0 bg-gradient-to-tr from-white via-white/80 to-primary/20"></div>
+            <!-- Focus on Dark Blue (Primary) -->
+            <div class="absolute inset-0 bg-gradient-to-tr from-white via-white/80 to-primary/10"></div>
             <div class="absolute -top-[10%] -right-[5%] w-[400px] h-[400px] bg-primary/20 rounded-full blur-[100px]"></div>
-            <div class="absolute -bottom-[10%] -left-[5%] w-[350px] h-[350px] bg-navy/10 rounded-full blur-[80px]"></div>
+            <div class="absolute -bottom-[10%] -left-[5%] w-[350px] h-[350px] bg-accent/10 rounded-full blur-[80px]"></div>
         </div>
 
         <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10 w-full">
             <div class="stagger-reveal" data-scroll>
                 <div class="flex items-center gap-4 mb-6">
                     <span class="w-10 h-0.5 bg-primary"></span>
-                    <span class="text-navy font-black tracking-[0.3em] text-[9px] uppercase">Excelência Dental Dual-Tone</span>
+                    <span class="text-primary font-black tracking-[0.3em] text-[9px] uppercase">Elite Dental Navy & Sky</span>
                 </div>
                 
                 <h1 class="text-reveal active mb-8 overflow-hidden">
-                    <span class="text-5xl md:text-8xl font-display font-black text-navy leading-[0.85] tracking-tighter block">
+                    <span class="text-5xl md:text-8xl font-display font-black text-primary leading-[0.85] tracking-tighter block">
                         Seu Sorriso,
                     </span>
-                    <span class="text-5xl md:text-8xl font-display font-black text-navy leading-[0.85] tracking-tighter block">
-                        Elevado à <span class="text-primary italic drop-shadow-[0_0_10px_rgba(14,165,233,0.2)]">Perfeição.</span>
+                    <span class="text-5xl md:text-8xl font-display font-black text-primary leading-[0.85] tracking-tighter block">
+                        Elevado à <span class="text-accent italic drop-shadow-[0_0_10px_rgba(14,165,233,0.3)]">Perfeição.</span>
                     </span>
                 </h1>
 
-                <p class="text-lg md:text-xl text-navy/60 font-light leading-relaxed max-w-lg mb-10">
-                    Na DUNO, unimos precisão digital à visão artística facial para arquitetar sorrisos que são verdadeiras assinaturas modernas em azul.
+                <p class="text-lg md:text-xl text-primary/60 font-light leading-relaxed max-w-lg mb-10">
+                    Arquitetamos sorrisos que traduzem sua personalidade com precisão digital e um refinado senso estético focado no azul atemporal.
                 </p>
 
                 <div class="flex flex-wrap gap-4">
-                    <a href="#especialidades" class="bg-navy text-white px-10 py-5 rounded-full font-black text-[11px] tracking-[0.2em] uppercase shadow-xl hover:bg-primary transition-all flex items-center gap-4 group magnetic-btn cta-glow">
+                    <a href="#especialidades" class="bg-primary text-white px-10 py-5 rounded-full font-black text-[11px] tracking-[0.2em] uppercase shadow-xl hover:bg-accent transition-all flex items-center gap-4 group magnetic-btn cta-glow">
                         VER ESPECIALIDADES
                         <i class="ph ph-arrow-right group-hover:translate-x-2 transition-transform"></i>
                     </a>
-                    <a href="https://wa.me/5511992876219" class="border-2 border-navy/10 text-navy px-10 py-5 rounded-full font-black text-[11px] tracking-[0.2em] uppercase hover:bg-navy hover:text-white transition-all flex items-center gap-4 cta-glow">
+                    <a href="https://wa.me/5511992876219" class="border-2 border-primary/10 text-primary px-10 py-5 rounded-full font-black text-[11px] tracking-[0.2em] uppercase hover:bg-primary hover:text-white transition-all flex items-center gap-4 cta-glow">
                         <i class="ph ph-whatsapp-logo text-xl"></i>
                         AGENDAR NO WHATSAPP
                     </a>
@@ -480,10 +511,10 @@ Design de alto padrão com animações avançadas e foco máximo em conversão v
                         </div>
                         <div class="p-8 flex flex-col flex-grow justify-between">
                             <div>
-                                <h3 class="text-2xl font-display font-black text-navy mb-3" x-text="service.t"></h3>
+                                <h3 class="text-2xl font-display font-black text-primary mb-3" x-text="service.t"></h3>
                                 <p class="text-slate-500 text-sm font-light mb-6" x-text="service.d"></p>
                             </div>
-                            <a href="https://wa.me/5511992876219" class="text-primary text-[10px] font-black tracking-widest uppercase flex items-center gap-3 mt-auto group-hover:gap-5 transition-all">
+                            <a href="https://wa.me/5511992876219" class="text-accent text-[10px] font-black tracking-widest uppercase flex items-center gap-3 mt-auto group-hover:gap-5 transition-all">
                                 AGENDAR CONSULTA <i class="ph ph-arrow-right"></i>
                             </a>
                         </div>
@@ -685,18 +716,18 @@ Design de alto padrão com animações avançadas e foco máximo em conversão v
 
             <div class="grid md:grid-cols-4 gap-20 border-t border-white/5 pt-20">
                 <div class="col-span-1 md:col-span-1">
-                    <span class="text-3xl font-display font-black mb-8 block tracking-tighter text-navy uppercase">DUNO<span class="text-primary underline">ODONTO</span></span>
-                    <p class="text-navy/40 leading-relaxed font-light mb-10">Alta precisão médica e sensibilidade artística para transformar vidas através do sorriso em azul.</p>
+                    <span class="text-3xl font-display font-black mb-8 block tracking-tighter text-primary uppercase">DUNO<span class="text-accent underline">ODONTO</span></span>
+                    <p class="text-primary/40 leading-relaxed font-light mb-10">Alta precisão médica e sensibilidade artística para transformar vidas através do sorriso com autoridade navy.</p>
                     <div class="flex gap-6">
-                        <a href="#" class="w-12 h-12 rounded-full border border-navy/10 text-navy flex items-center justify-center hover:bg-primary hover:text-white transition-all"><i class="ph ph-instagram-logo"></i></a>
+                        <a href="#" class="w-12 h-12 rounded-full border border-primary/10 text-primary flex items-center justify-center hover:bg-accent hover:text-white transition-all"><i class="ph ph-instagram-logo"></i></a>
                     </div>
                 </div>
 
                 <div>
-                    <h5 class="text-[10px] font-black tracking-[0.4em] uppercase mb-10 text-primary">NAVEGAÇÃO</h5>
-                    <ul class="space-y-4 text-sm text-navy/50 font-light">
-                        <li><a href="#início" class="hover:text-primary transition-colors">Início</a></li>
-                        <li><a href="#sobre" class="hover:text-primary transition-colors">A Clínica</a></li>
+                    <h5 class="text-[10px] font-black tracking-[0.4em] uppercase mb-10 text-accent">NAVEGAÇÃO</h5>
+                    <ul class="space-y-4 text-sm text-primary/50 font-light">
+                        <li><a href="#início" class="hover:text-accent transition-colors">Início</a></li>
+                        <li><a href="#sobre" class="hover:text-accent transition-colors">A Clínica</a></li>
                     </ul>
                 </div>
 
@@ -923,6 +954,32 @@ Design de alto padrão com animações avançadas e foco máximo em conversão v
             });
             btn.addEventListener('mouseleave', () => {
                 btn.style.transform = `translate(0px, 0px)`;
+            });
+        });
+
+        // Custom Cursor Logic
+        const cursor = document.getElementById('cursor');
+        const follower = document.getElementById('cursor-follower');
+        
+        window.addEventListener('mousemove', (e) => {
+            cursor.style.transform = `translate3d(${e.clientX - 10}px, ${e.clientY - 10}px, 0)`;
+            follower.style.transform = `translate3d(${e.clientX - 20}px, ${e.clientY - 20}px, 0)`;
+        });
+
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.style.width = '60px';
+                cursor.style.height = '60px';
+                cursor.style.background = 'rgba(14, 165, 233, 0.2)';
+                follower.style.width = '80px';
+                follower.style.height = '80px';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.style.width = '20px';
+                cursor.style.height = '20px';
+                cursor.style.background = '#0EA5E9';
+                follower.style.width = '40px';
+                follower.style.height = '40px';
             });
         });
 
