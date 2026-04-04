@@ -36,11 +36,11 @@ Design de alto padrão com animações avançadas e foco máximo em conversão v
             theme: {
                 extend: {
                     colors: {
-                        primary: '#0F172A',
+                        primary: '#0EA5E9',
                         accent: '#D4AF77',
                         luxury: {
-                            50: '#F8F9FA',
-                            100: '#F1F3F5',
+                            50: '#F0F9FF',
+                            100: '#E0F2FE',
                             900: '#0F172A'
                         }
                     },
@@ -105,7 +105,7 @@ Design de alto padrão com animações avançadas e foco máximo em conversão v
         }
 
         .header-scrolled {
-            background: rgba(15, 23, 42, 0.95);
+            background: rgba(14, 165, 233, 0.95);
             backdrop-filter: blur(12px);
             padding: 1rem 0;
         }
@@ -159,7 +159,7 @@ Design de alto padrão com animações avançadas e foco máximo em conversão v
             left: 0;
             width: 100%;
             height: 100%;
-            background: #0F172A;
+            background: #0EA5E9;
             transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
             transform-origin: right;
         }
@@ -314,59 +314,62 @@ Design de alto padrão com animações avançadas e foco máximo em conversão v
     </template>
 
     <!-- Hero Section -->
-    <section id="início" class="relative min-h-[110vh] flex items-center overflow-hidden bg-white">
-        <!-- Parallax Background Layer -->
+    <section id="início" class="relative min-h-screen flex items-center overflow-hidden bg-primary py-20">
+        <!-- Vibrant Background Layer -->
         <div class="absolute inset-0 z-0">
             <div id="hero-parallax" class="absolute inset-0 scale-110">
                 <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=2000" 
-                     alt="Clínica Luxo" class="w-full h-full object-cover opacity-15">
+                     alt="Clínica Luxo" class="w-full h-full object-cover opacity-30 mix-blend-overlay">
             </div>
-            <div class="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white"></div>
+            <!-- Vibrant Gradients -->
+            <div class="absolute inset-0 bg-gradient-to-tr from-primary via-primary/95 to-accent/20"></div>
+            <div class="absolute -top-[20%] -right-[10%] w-[600px] h-[600px] bg-accent/30 rounded-full blur-[150px] animate-pulse-slow"></div>
+            <div class="absolute -bottom-[20%] -left-[10%] w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[120px]"></div>
         </div>
 
-        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center relative z-10 w-full">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10 w-full">
             <div class="stagger-reveal" data-scroll>
-                <div class="flex items-center gap-4 mb-8">
-                    <span class="w-12 h-0.5 bg-accent"></span>
-                    <span class="text-accent font-black tracking-[0.4em] text-[10px] uppercase">Excelência Dental 2026</span>
+                <div class="flex items-center gap-4 mb-6">
+                    <span class="w-10 h-0.5 bg-accent"></span>
+                    <span class="text-accent font-black tracking-[0.3em] text-[9px] uppercase">Excelência Dental 2026</span>
                 </div>
                 
-                <h1 class="text-reveal active mb-10 overflow-hidden">
-                    <span class="text-6xl md:text-[7.5rem] font-display font-black text-primary leading-[0.85] tracking-tighter block">
+                <h1 class="text-reveal active mb-8 overflow-hidden">
+                    <span class="text-5xl md:text-8xl font-display font-black text-white leading-[0.85] tracking-tighter block">
                         Seu Sorriso,
                     </span>
-                    <span class="text-6xl md:text-[7.5rem] font-display font-black text-primary leading-[0.85] tracking-tighter block">
-                        Elevado à <span class="text-accent italic font-light">Obra de Arte.</span>
+                    <span class="text-5xl md:text-8xl font-display font-black text-white leading-[0.85] tracking-tighter block">
+                        Elevado à <span class="text-accent italic font-light drop-shadow-[0_0_15px_rgba(212,175,119,0.3)]">Perfeição.</span>
                     </span>
                 </h1>
 
-                <p class="text-xl md:text-2xl text-slate-500 font-light leading-relaxed max-w-xl mb-12">
-                    Na DUNO, unimos a alta precisão da micro-odontologia digital à visão artística facial para criar resultados que são verdadeiras assinaturas.
+                <p class="text-lg md:text-xl text-white/70 font-light leading-relaxed max-w-lg mb-10">
+                    Na DUNO, unimos precisão digital à visão artística facial para criar sorrisos que são verdadeiras assinaturas em cores e formas vibrantes.
                 </p>
 
-                <div class="flex flex-wrap gap-6">
-                    <a href="#especialidades" class="bg-primary text-white px-12 py-6 rounded-full font-black text-[12px] tracking-[0.2em] uppercase shadow-2xl hover:bg-accent transition-all flex items-center gap-4 group magnetic-btn cta-glow">
+                <div class="flex flex-wrap gap-4">
+                    <a href="#especialidades" class="bg-primary text-white px-10 py-5 rounded-full font-black text-[11px] tracking-[0.2em] uppercase shadow-xl hover:bg-accent transition-all flex items-center gap-4 group magnetic-btn cta-glow">
                         VER ESPECIALIDADES
                         <i class="ph ph-arrow-right group-hover:translate-x-2 transition-transform"></i>
                     </a>
-                    <a href="https://wa.me/5511992876219" class="border-2 border-primary/10 text-primary px-12 py-6 rounded-full font-black text-[12px] tracking-[0.2em] uppercase hover:bg-primary hover:text-white transition-all flex items-center gap-4 cta-glow">
+                    <a href="https://wa.me/5511992876219" class="border-2 border-primary/10 text-primary px-10 py-5 rounded-full font-black text-[11px] tracking-[0.2em] uppercase hover:bg-primary hover:text-white transition-all flex items-center gap-4 cta-glow">
                         <i class="ph ph-whatsapp-logo text-xl"></i>
-                        AGENDAR NO WHATSAPP
+                        AGENDAR AGORA
                     </a>
                 </div>
 
-                <div class="mt-24 grid grid-cols-3 gap-12 border-t border-primary/5 pt-12">
+                <div class="mt-16 grid grid-cols-3 gap-8 border-t border-primary/5 pt-10">
                     <div>
-                        <p class="text-4xl font-display font-black text-primary mb-1 count-up" data-target="15">0</p>
-                        <p class="text-[9px] uppercase tracking-widest text-slate-400 font-black">Anos de Mercado</p>
+                        <p class="text-3xl font-display font-black text-primary mb-1 count-up" data-target="15">0</p>
+                        <p class="text-[8px] uppercase tracking-widest text-slate-400 font-black">Anos de Mercado</p>
                     </div>
                     <div>
-                        <p class="text-4xl font-display font-black text-primary mb-1 count-up" data-target="8000">0</p>
-                        <p class="text-[9px] uppercase tracking-widest text-slate-400 font-black">Sorrisos Criados</p>
+                        <p class="text-3xl font-display font-black text-primary mb-1 count-up" data-target="8000">0</p>
+                        <p class="text-[8px] uppercase tracking-widest text-slate-400 font-black">Sorrisos Criados</p>
                     </div>
                     <div>
-                        <p class="text-4xl font-display font-black text-primary mb-1">10<span class="text-accent">/</span>10</p>
-                        <p class="text-[9px] uppercase tracking-widest text-slate-400 font-black">Nível de Conversão</p>
+                        <p class="text-3xl font-display font-black text-primary mb-1">10<span class="text-accent">/</span>10</p>
+                        <p class="text-[8px] uppercase tracking-widest text-slate-400 font-black">Nota Digital</p>
                     </div>
                 </div>
             </div>
@@ -406,49 +409,39 @@ Design de alto padrão com animações avançadas e foco máximo em conversão v
     </section>
 
     <!-- About Section -->
-    <section class="py-32 bg-white" id="sobre">
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-32 items-center">
+    <section class="py-24 bg-white" id="sobre">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
             <div class="relative">
-                <div class="image-reveal rounded-[100px] overflow-hidden aspect-[3/4] shadow-2xl" data-scroll>
+                <div class="image-reveal rounded-[80px] overflow-hidden aspect-[4/5] shadow-xl" data-scroll>
                     <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=800" alt="Equipe Duno" class="w-full h-full object-cover">
                 </div>
-                <div class="absolute -top-10 -right-10 w-48 h-48 bg-accent rounded-full flex flex-col items-center justify-center text-primary border-[10px] border-white shadow-2xl transform rotate-12">
-                    <span class="text-4xl font-display font-black">20+</span>
-                    <span class="text-[9px] font-black uppercase tracking-widest text-center">Anos de <br>Experiência</span>
+                <div class="absolute -top-8 -right-8 w-40 h-40 bg-accent rounded-full flex flex-col items-center justify-center text-primary border-[8px] border-white shadow-xl transform rotate-6">
+                    <span class="text-3xl font-display font-black">20+</span>
+                    <span class="text-[8px] font-black uppercase tracking-widest text-center">Anos de <br>Experiência</span>
                 </div>
             </div>
 
             <div class="stagger-reveal" data-scroll>
-                <div class="flex items-center gap-4 mb-8">
-                    <span class="h-0.5 w-12 bg-accent"></span>
-                    <span class="text-accent font-black tracking-[0.3em] text-[10px] uppercase">A CLÍNICA</span>
+                <div class="flex items-center gap-4 mb-6">
+                    <span class="h-0.5 w-10 bg-accent"></span>
+                    <span class="text-accent font-black tracking-[0.2em] text-[9px] uppercase">A CLÍNICA</span>
                 </div>
-                <h2 class="text-5xl md:text-7xl font-display font-black text-primary leading-tight mb-12 tracking-tighter">
-                    Onde a Medicina <br>
+                <h2 class="text-4xl md:text-6xl font-display font-black text-primary leading-tight mb-8 tracking-tighter">
+                    Medicina que <br>
                     Encontra a <span class="italic text-accent">Perfeição.</span>
                 </h2>
-                <div class="space-y-8 text-xl text-slate-500 font-light leading-relaxed mb-16">
-                    <p>A DUNO nasceu com um propósito claro: transcender o conceito tradicional de consultório odontológico. Criamos um ecossistema de luxo médico onde a tecnologia 2026 é aplicada com sensibilidade humana.</p>
-                    <p>Nossos protocolos são individualizados. Não entregamos sorrisos padronizados; arquitetamos expressões que respeitam a biomecânica e a estética facial de cada paciente.</p>
+                <div class="space-y-6 text-lg text-slate-500 font-light leading-relaxed mb-12">
+                    <p>A DUNO transcende o conceito tradicional de consultório. Criamos um ecossistema de luxo onde a tecnologia digital é aplicada com sensibilidade humana absoluta.</p>
                 </div>
                 
-                <div class="grid grid-cols-2 gap-10">
-                    <div class="flex items-start gap-5">
-                        <div class="w-12 h-12 bg-luxury-50 rounded-2xl flex items-center justify-center text-accent text-2xl">
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 bg-luxury-50 rounded-2xl flex items-center justify-center text-accent text-xl">
                             <i class="ph ph-microscope"></i>
                         </div>
                         <div>
-                            <h4 class="font-black text-primary tracking-tight">Microscopia</h4>
-                            <p class="text-sm text-slate-400">Precisão extrema</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-5">
-                        <div class="w-12 h-12 bg-luxury-50 rounded-2xl flex items-center justify-center text-accent text-2xl">
-                            <i class="ph ph-fingerprint"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-black text-primary tracking-tight">ID Facial</h4>
-                            <p class="text-sm text-slate-400">Exclusividade total</p>
+                            <h4 class="font-black text-primary text-sm tracking-tight">Microscopia</h4>
+                            <p class="text-[10px] text-slate-400">Precisão extrema</p>
                         </div>
                     </div>
                 </div>
@@ -456,104 +449,58 @@ Design de alto padrão com animações avançadas e foco máximo em conversão v
         </div>
     </section>
 
-    <!-- Services Section (Advanced Tabs) -->
-    <section class="py-32 bg-primary text-white overflow-hidden" id="especialidades">
+    <!-- Services Section -->
+    <section class="py-24 bg-luxury-50 overflow-hidden" id="especialidades">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-24 stagger-reveal" data-scroll>
-                <span class="text-accent font-black tracking-[0.5em] text-[10px] uppercase mb-6 block">NOSSOS SERVIÇOS</span>
-                <h2 class="text-5xl md:text-8xl font-display font-black tracking-tighter mb-8 text-white">Domínio Técnico <br>em cada detalhe</h2>
-                <p class="text-white/50 text-xl font-light max-w-2xl mx-auto">Dos tratamentos regenerativos às transformações estéticas de alta complexidade.</p>
+            <div class="text-center mb-16 stagger-reveal" data-scroll>
+                <span class="text-accent font-black tracking-[0.4em] text-[8px] uppercase mb-4 block">NOSSOS SERVIÇOS</span>
+                <h2 class="text-4xl md:text-6xl font-display font-black tracking-tighter mb-6 text-primary">Domínio Técnico</h2>
+                <p class="text-slate-500 text-lg font-light max-w-2xl mx-auto">Conheça as 10 especialidades que transformam a vida dos nossos pacientes diariamente.</p>
             </div>
 
-            <!-- Tabs Navigation -->
-            <div class="flex flex-wrap justify-center gap-4 mb-20">
-                <template x-for="(cat, index) in ['Estética', 'Ortodontia', 'Reabilitação', 'Saúde Orofacial']">
-                    <button @click="activeTab = index" 
-                            :class="activeTab === index ? 'bg-accent text-primary' : 'bg-white/5 text-white/60 hover:bg-white/10'"
-                            class="px-8 py-4 rounded-full text-[10px] font-black tracking-[0.3em] uppercase transition-all duration-300"
-                            x-text="cat"></button>
+            <!-- Services Grid (No Filters) -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <template x-for="(service, i) in [
+                    {t: 'Lentes de Contato Dental', d: 'Porcelanas ultrafinas que corrigem cor e formato com precisão digital.', img: 'https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&q=80&w=800'},
+                    {t: 'Facetas de Porcelana', d: 'Reabilitação estética duradoura para dentes desgastados ou manchados.', img: 'https://images.unsplash.com/photo-1445510491599-c391e8046a68?auto=format&fit=crop&q=80&w=800'},
+                    {t: 'Clareamento Dental', d: 'Branqueamento a laser de alta potência para um sorriso branco radiante.', img: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800'},
+                    {t: 'Harmonização Oroficial', d: 'Equilíbrio estético facial com preenchedores e toxina botulínica.', img: 'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=800'},
+                    {t: 'Implantes Dentários', d: 'Reposição funcional e estética de dentes perdidos com tecnologia suíça.', img: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=800'},
+                    {t: 'Ortodontia Invisalign', d: 'Alinhamento discreto com os alinhadores transparentes nº 1 do mundo.', img: 'https://images.unsplash.com/photo-1516062423079-7ca13cdc7f5a?auto=format&fit=crop&q=80&w=800'},
+                    {t: 'Próteses de Zircônio', d: 'Próteses fixas sobre implantes com transparência e naturalidade total.', img: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800'},
+                    {t: 'Gengivoplastia', d: 'Cirurgia plástica gengival para correção de sorriso gengival e harmonia.', img: 'https://images.unsplash.com/photo-1593054910314-d242f3607fc8?auto=format&fit=crop&q=80&w=800'},
+                    {t: 'Canal com Microscopia', d: 'Tratamentos endodônticos indolores com precisão microscópica.', img: 'https://images.unsplash.com/photo-1571772996211-1f45c994083a?auto=format&fit=crop&q=80&w=800'},
+                    {t: 'Profilaxia Completa', d: 'Limpeza profunda e aplicação de protocolos de saúde oral preventiva.', img: 'https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&q=80&w=800'}
+                ]">
+                    <div class="premium-card p-1 bg-white rounded-[35px] group overflow-hidden border border-luxury-100 h-full flex flex-col">
+                        <div class="relative aspect-[4/3] rounded-[30px] overflow-hidden shrink-0">
+                            <img :src="service.img" :alt="service.t" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60"></div>
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow justify-between">
+                            <div>
+                                <h3 class="text-2xl font-display font-black text-primary mb-3" x-text="service.t"></h3>
+                                <p class="text-slate-500 text-sm font-light mb-6" x-text="service.d"></p>
+                            </div>
+                            <a href="https://wa.me/5511992876219" class="text-accent text-[10px] font-black tracking-widest uppercase flex items-center gap-3 mt-auto group-hover:gap-5 transition-all">
+                                AGENDAR CONSULTA <i class="ph ph-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
                 </template>
-            </div>
-
-            <!-- Tab Contents -->
-            <div class="relative">
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-                    <!-- Tab 0: Estética -->
-                    <template x-if="activeTab === 0">
-                        <div class="contents">
-                            <div class="premium-card p-1 bg-white/5 rounded-[40px] group overflow-hidden border border-white/10">
-                                <div class="relative aspect-[4/5] rounded-[38px] overflow-hidden">
-                                    <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&q=80&w=800" alt="Lentes" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
-                                    <div class="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent opacity-80"></div>
-                                    <div class="absolute bottom-10 left-10 right-10">
-                                        <h3 class="text-3xl font-display font-black text-white mb-4">Lentes de Contato</h3>
-                                        <p class="text-white/60 text-sm font-light mb-6">Porcelanas E-max ultrafinas para um sorriso hollywoodiano com preservação total.</p>
-                                        <a href="https://wa.me/5511992876219" class="text-accent text-[11px] font-black tracking-widest uppercase flex items-center gap-3">
-                                            SAIBAR MAIS <i class="ph ph-arrow-right"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="premium-card p-1 bg-white/5 rounded-[40px] group overflow-hidden border border-white/10">
-                                <div class="relative aspect-[4/5] rounded-[38px] overflow-hidden">
-                                    <img src="https://images.unsplash.com/photo-1445510491599-c391e8046a68?auto=format&fit=crop&q=80&w=800" alt="Faceta" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
-                                    <div class="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent opacity-80"></div>
-                                    <div class="absolute bottom-10 left-10 right-10">
-                                        <h3 class="text-3xl font-display font-black text-white mb-4">Clareamento Laser</h3>
-                                        <p class="text-white/60 text-sm font-light mb-6">Branqueamento de última geração com zero sensibilidade e resultados duradouros.</p>
-                                        <a href="https://wa.me/5511992876219" class="text-accent text-[11px] font-black tracking-widest uppercase flex items-center gap-3">
-                                            SAIBAR MAIS <i class="ph ph-arrow-right"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="premium-card p-1 bg-white/5 rounded-[40px] group overflow-hidden border border-white/10">
-                                <div class="relative aspect-[4/5] rounded-[38px] overflow-hidden">
-                                    <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=800" alt="Harmonização" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
-                                    <div class="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent opacity-80"></div>
-                                    <div class="absolute bottom-10 left-10 right-10">
-                                        <h3 class="text-3xl font-display font-black text-white mb-4">Harmo Digital</h3>
-                                        <p class="text-white/60 text-sm font-light mb-6">Equilíbrio perfeito entre o sorriso e as linhas do rosto com toxina e preenchedores.</p>
-                                        <a href="https://wa.me/5511992876219" class="text-accent text-[11px] font-black tracking-widest uppercase flex items-center gap-3">
-                                            SAIBAR MAIS <i class="ph ph-arrow-right"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </template>
-                    <!-- Other tab templates would be similar -->
-                    <template x-if="activeTab === 1">
-                        <div class="contents">
-                            <div class="premium-card p-1 bg-white/5 rounded-[40px] group overflow-hidden border border-white/10">
-                                <div class="relative aspect-[4/5] rounded-[38px] overflow-hidden">
-                                    <img src="https://images.unsplash.com/photo-1516062423079-7ca13cdc7f5a?auto=format&fit=crop&q=80&w=800" alt="Invisalign" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
-                                    <div class="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent opacity-80"></div>
-                                    <div class="absolute bottom-10 left-10 right-10">
-                                        <h3 class="text-3xl font-display font-black text-white mb-4">Invisalign® Platinum</h3>
-                                        <p class="text-white/60 text-sm font-light mb-6">A liberdade de alinhar seu sorriso com discrição absoluta e tecnologia 3D Itero.</p>
-                                        <a href="https://wa.me/5511992876219" class="text-accent text-[11px] font-black tracking-widest uppercase flex items-center gap-3">
-                                            SOLICITAR SCANNER <i class="ph ph-arrow-right"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </template>
-                </div>
             </div>
         </div>
     </section>
 
     <!-- Before/After Comparison -->
-    <section class="py-32 bg-luxury-50" id="resultados">
-        <div class="max-w-7xl mx-auto px-6 text-center mb-24">
-            <span class="text-accent font-black tracking-[0.5em] text-[10px] uppercase mb-6 block">RESULTADOS REAIS</span>
-            <h2 class="text-5xl md:text-7xl font-display font-black text-primary tracking-tighter">O Impacto de um <br>Sorriso DUNO</h2>
+    <section class="py-24 bg-luxury-50" id="resultados">
+        <div class="max-w-7xl mx-auto px-6 text-center mb-16">
+            <span class="text-accent font-black tracking-[0.4em] text-[9px] uppercase mb-4 block">RESULTADOS REAIS</span>
+            <h2 class="text-4xl md:text-6xl font-display font-black text-primary tracking-tighter">O Impacto DUNO</h2>
         </div>
 
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="before-after-slider h-[600px] group" id="slider-1">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="before-after-slider h-[500px] group" id="slider-1">
                 <!-- After Image -->
                 <div class="absolute inset-0">
                     <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=1200" 
@@ -577,12 +524,12 @@ Design de alto padrão com animações avançadas e foco máximo em conversão v
     </section>
 
     <!-- How it works (Timeline) -->
-    <section class="py-32 bg-white">
+    <section class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-32 items-center">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
                 <div class="stagger-reveal" data-scroll>
-                    <span class="text-accent font-black tracking-[0.5em] text-[10px] uppercase mb-6 block">SUA JORNADA</span>
-                    <h2 class="text-5xl md:text-7xl font-display font-black text-primary tracking-tighter mb-12">Como Criamos <br>sua Assinatura</h2>
+                    <span class="text-accent font-black tracking-[0.3em] text-[8px] uppercase mb-4 block">SUA JORNADA</span>
+                    <h2 class="text-4xl md:text-6xl font-display font-black text-primary tracking-tighter mb-8">Criando sua Assinatura</h2>
                     <p class="text-xl text-slate-500 font-light leading-relaxed mb-16">
                         Seguimos um rigoroso protocolo de 4 etapas para garantir que o resultado final seja exatamente como você sonhou, sem surpresas desagradáveis.
                     </p>
@@ -615,12 +562,12 @@ Design de alto padrão com animações avançadas e foco máximo em conversão v
     </section>
 
     <!-- Testimonials Section -->
-    <section class="py-32 bg-primary text-white overflow-hidden">
+    <section class="py-24 bg-primary text-white overflow-hidden">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-10">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-10">
                 <div class="stagger-reveal" data-scroll>
-                    <span class="text-accent font-black tracking-[0.5em] text-[10px] uppercase mb-6 block">DEPOIMENTOS</span>
-                    <h2 class="text-5xl md:text-7xl font-display font-black tracking-tighter">O que dizem os <br>nossos pacientes</h2>
+                    <span class="text-accent font-black tracking-[0.3em] text-[8px] uppercase mb-4 block">DEPOIMENTOS</span>
+                    <h2 class="text-4xl md:text-6xl font-display font-black tracking-tighter">O que dizem nossos pacientes</h2>
                 </div>
                 <div class="flex gap-4">
                     <button class="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-primary transition-all">
@@ -651,11 +598,11 @@ Design de alto padrão com animações avançadas e foco máximo em conversão v
     </section>
 
     <!-- FAQ Section -->
-    <section class="py-32 bg-white" id="dúvidas">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="text-center mb-24 stagger-reveal" data-scroll>
-                <span class="text-accent font-black tracking-[0.5em] text-[10px] uppercase mb-6 block">FAQ</span>
-                <h2 class="text-5xl md:text-7xl font-display font-black text-primary tracking-tighter">Dúvidas Comuns</h2>
+    <section class="py-24 bg-white" id="dúvidas">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="text-center mb-16 stagger-reveal" data-scroll>
+                <span class="text-accent font-black tracking-[0.3em] text-[8px] uppercase mb-4 block">FAQ</span>
+                <h2 class="text-4xl md:text-6xl font-display font-black text-primary tracking-tighter">Dúvidas Comuns</h2>
             </div>
 
             <div class="space-y-6" x-data="{ openFaq: 0 }">
@@ -685,12 +632,12 @@ Design de alto padrão com animações avançadas e foco máximo em conversão v
     </section>
 
     <!-- Location Section -->
-    <section class="py-32 bg-luxury-50" id="localização">
+    <section class="py-24 bg-luxury-50" id="localização">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-32 items-center">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
                 <div class="stagger-reveal" data-scroll>
-                    <span class="text-accent font-black tracking-[0.5em] text-[10px] uppercase mb-6 block">EXPERIÊNCIA FÍSICA</span>
-                    <h2 class="text-5xl md:text-7xl font-display font-black text-primary tracking-tighter mb-12">Onde a Arte <br>Acontece</h2>
+                    <span class="text-accent font-black tracking-[0.3em] text-[8px] uppercase mb-4 block">CONTATO</span>
+                    <h2 class="text-4xl md:text-6xl font-display font-black text-primary tracking-tighter mb-10">Onde a Arte Acontece</h2>
                     <div class="space-y-10">
                         <div class="flex items-start gap-6">
                             <div class="text-accent text-3xl shrink-0"><i class="ph ph-map-pin"></i></div>
@@ -723,15 +670,15 @@ Design de alto padrão com animações avançadas e foco máximo em conversão v
     </section>
 
     <!-- Footer -->
-    <footer class="bg-primary text-white py-32 overflow-hidden relative">
+    <footer class="bg-primary text-white py-24 overflow-hidden relative">
         <!-- Decoration -->
         <div class="absolute -top-24 -right-24 w-96 h-96 bg-accent opacity-5 rounded-full blur-[120px]"></div>
 
         <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-32">
-                <h2 class="text-6xl md:text-[8rem] font-display font-black tracking-tighter mb-12">Sua Melhora <br>Versão Começa <span class="italic text-accent">Aqui.</span></h2>
-                <a href="https://wa.me/5511992876219" class="bg-accent text-primary px-16 py-8 rounded-full font-black text-sm tracking-[0.3em] uppercase shadow-2xl hover:bg-white transition-all transform hover:scale-110 cta-glow">
-                    AGENDAR CONSULTA AGORA
+            <div class="text-center mb-24">
+                <h2 class="text-4xl md:text-6xl font-display font-black tracking-tighter mb-8">Sua Melhor Versão <br>Começa <span class="italic text-accent">Aqui.</span></h2>
+                <a href="https://wa.me/5511992876219" class="bg-accent text-primary px-12 py-5 rounded-full font-black text-[11px] tracking-[0.2em] uppercase shadow-xl hover:bg-white transition-all transform hover:scale-105 cta-glow">
+                    AGENDAR AGORA
                 </a>
             </div>
 
