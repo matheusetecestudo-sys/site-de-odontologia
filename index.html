@@ -105,11 +105,13 @@ Design de alto padrão com animações avançadas e foco máximo em conversão v
         }
 
         .header-scrolled {
-            background: rgba(15, 23, 42, 0.98);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(12px);
             padding: 0.8rem 0;
-            border-bottom: 2px solid #0EA5E9;
+            border-bottom: 1px solid rgba(15, 23, 42, 0.05);
         }
+        .header-scrolled .nav-link { color: #0F172A; }
+        .header-scrolled .logo-text { color: #0F172A; }
 
         .magnetic-btn {
             display: inline-flex;
@@ -284,13 +286,13 @@ Design de alto padrão com animações avançadas e foco máximo em conversão v
 
     <!-- Navigation -->
     <!-- Navigation -->
-    <header :class="scrolled ? 'header-scrolled shadow-2xl' : 'bg-white py-6 border-b border-slate-100'" 
+    <header :class="scrolled ? 'header-scrolled shadow-2xl' : 'bg-white/10 py-6 border-b border-white/10'" 
             class="fixed w-full z-[100] transition-all duration-500">
         <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
             <!-- Logo -->
             <a href="#" class="flex items-center gap-3 group">
-                <span class="text-2xl md:text-3xl font-display font-black tracking-tighter transition-colors"
-                      :class="scrolled ? 'text-white' : 'text-primary'">
+                <span class="text-2xl md:text-3xl font-display font-black tracking-tighter transition-colors logo-text"
+                      :class="scrolled ? 'text-primary' : 'text-primary'">
                     DUNO<span class="text-accent underline decoration-2 underline-offset-4">ODONTO</span>
                 </span>
             </a>
@@ -299,8 +301,8 @@ Design de alto padrão com animações avançadas e foco máximo em conversão v
             <nav class="hidden lg:flex items-center gap-12">
                 <template x-for="(item, i) in ['Início', 'Especialidades', 'Resultados', 'Dúvidas', 'Localização']">
                     <a :href="'#' + item.toLowerCase()" 
-                       class="text-[11px] font-black tracking-[0.2em] uppercase relative group overflow-hidden py-1"
-                       :class="scrolled ? 'text-white/80 hover:text-white' : 'text-primary/70 hover:text-accent'">
+                       class="text-[11px] font-black tracking-[0.25em] uppercase relative group overflow-hidden py-1 nav-link transition-colors"
+                       :class="scrolled ? 'text-primary/70 hover:text-accent' : 'text-primary/70 hover:text-accent'">
                         <span x-text="item" class="block transition-transform duration-300 group-hover:-translate-y-full"></span>
                         <span x-text="item" class="absolute inset-0 block transition-transform duration-300 translate-y-full group-hover:translate-y-0 text-accent"></span>
                     </a>
@@ -346,50 +348,79 @@ Design de alto padrão com animações avançadas e foco máximo em conversão v
         </div>
     </template>
 
-    <!-- Hero Section -->
+    <!-- Hero Section: Premium Split Design -->
     <section id="início" class="relative min-h-screen flex items-center overflow-hidden bg-white py-20">
         <!-- Background Layer -->
         <div class="absolute inset-0 z-0">
             <div id="hero-parallax" class="absolute inset-0 scale-110">
-                <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=2000" 
-                     alt="Clínica Luxo" class="w-full h-full object-cover opacity-10">
+                <img src="https://images.unsplash.com/photo-1606811841660-1b51e9ed24ff?auto=format&fit=crop&q=80&w=2000" 
+                     alt="Excelência Dental" class="w-full h-full object-cover">
             </div>
-            <!-- Focus on Dark Blue (Primary) -->
-            <div class="absolute inset-0 bg-gradient-to-tr from-white via-white/80 to-primary/10"></div>
-            <div class="absolute -top-[10%] -right-[5%] w-[400px] h-[400px] bg-primary/20 rounded-full blur-[100px]"></div>
-            <div class="absolute -bottom-[10%] -left-[5%] w-[350px] h-[350px] bg-accent/10 rounded-full blur-[80px]"></div>
+            <!-- Interactive Gradient Overlays -->
+            <div class="absolute inset-0 bg-gradient-to-r from-white via-white/70 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent opacity-80"></div>
         </div>
 
-        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10 w-full">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center relative z-10 w-full pt-10">
             <div class="stagger-reveal" data-scroll>
-                <div class="flex items-center gap-4 mb-6">
-                    <span class="w-10 h-0.5 bg-primary"></span>
-                    <span class="text-primary font-black tracking-[0.3em] text-[9px] uppercase">Elite Dental Navy & Sky</span>
+                <div class="flex items-center gap-4 mb-8">
+                    <span class="w-12 h-[3px] bg-accent rounded-full"></span>
+                    <span class="text-primary font-black tracking-[0.4em] text-[10px] uppercase">Haute Couture Dental Studio</span>
                 </div>
                 
-                <h1 class="text-reveal active mb-8 overflow-hidden">
-                    <span class="text-5xl md:text-8xl font-display font-black text-primary leading-[0.85] tracking-tighter block">
-                        Seu Sorriso,
+                <h1 class="text-reveal active mb-10 overflow-hidden">
+                    <span class="text-6xl md:text-[8rem] font-display font-black text-primary leading-[0.8] tracking-tighter block">
+                        A Arte do,
                     </span>
-                    <span class="text-5xl md:text-8xl font-display font-black text-primary leading-[0.85] tracking-tighter block">
-                        Elevado à <span class="text-accent italic drop-shadow-[0_0_10px_rgba(14,165,233,0.3)]">Perfeição.</span>
+                    <span class="text-6xl md:text-[8rem] font-display font-black text-primary leading-[0.8] tracking-tighter block">
+                        Sorriso <span class="text-accent italic drop-shadow-[0_0_20px_rgba(14,165,233,0.4)]">Dual.</span>
                     </span>
                 </h1>
 
-                <p class="text-lg md:text-xl text-primary/60 font-light leading-relaxed max-w-lg mb-10">
-                    Arquitetamos sorrisos que traduzem sua personalidade com precisão digital e um refinado senso estético focado no azul atemporal.
+                <p class="text-xl md:text-2xl text-primary/70 font-light leading-relaxed max-w-lg mb-12">
+                    Na DUNO, desconstruímos o tradicional para arquitetar sua melhor versão com o azul da tecnologia e a pureza do branco.
                 </p>
 
-                <div class="flex flex-wrap gap-4">
-                    <a href="#especialidades" class="bg-primary text-white px-10 py-5 rounded-full font-black text-[11px] tracking-[0.2em] uppercase shadow-xl hover:bg-accent transition-all flex items-center gap-4 group magnetic-btn cta-glow">
-                        VER ESPECIALIDADES
-                        <i class="ph ph-arrow-right group-hover:translate-x-2 transition-transform"></i>
-                    </a>
-                    <a href="https://wa.me/5511992876219" class="border-2 border-primary/10 text-primary px-10 py-5 rounded-full font-black text-[11px] tracking-[0.2em] uppercase hover:bg-primary hover:text-white transition-all flex items-center gap-4 cta-glow">
-                        <i class="ph ph-whatsapp-logo text-xl"></i>
-                        AGENDAR NO WHATSAPP
+                <div class="flex flex-wrap gap-6 items-center">
+                    <a href="https://wa.me/5511992876219" class="bg-primary text-white px-12 py-6 rounded-full font-black text-[12px] tracking-[0.25em] uppercase shadow-2xl hover:bg-accent transition-all flex items-center gap-6 group magnetic-btn cta-glow">
+                        RESERVAR CONSULTA
+                        <i class="ph ph-calendar-check text-xl group-hover:rotate-12 transition-transform"></i>
                     </a>
                 </div>
+            </div>
+
+            <!-- Floating High-End Info Panels -->
+            <div class="relative hidden lg:flex justify-end stagger-reveal" data-scroll>
+                <div class="relative w-[500px] h-[600px]">
+                    <!-- Main Asset -->
+                    <div class="absolute inset-0 rounded-[60px] overflow-hidden shadow-[0_50px_100px_-20px_rgba(15,23,42,0.3)] border-[8px] border-white group">
+                        <img src="https://images.unsplash.com/photo-1445510491599-c391e8046a68?auto=format&fit=crop&q=80&w=1200" 
+                             alt="Resultado" class="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+                    </div>
+
+                    <!-- Floating Glass Panels -->
+                    <div class="absolute -top-10 -left-10 bg-white/80 backdrop-blur-xl p-8 rounded-[40px] shadow-2xl border border-white/50 animate-bounce-slow">
+                        <span class="text-3xl font-display font-black text-primary block">100%</span>
+                        <span class="text-[9px] font-black uppercase tracking-widest text-accent">Precisão Digital iTero</span>
+                    </div>
+
+                    <div class="absolute bottom-20 -right-10 bg-primary/95 backdrop-blur-xl p-8 rounded-[40px] shadow-2xl border border-primary/20 animate-pulse-slow">
+                        <div class="flex items-center gap-4 mb-2">
+                             <div class="flex gap-1 text-accent">
+                                <i class="ph-fill ph-star"></i>
+                                <i class="ph-fill ph-star"></i>
+                                <i class="ph-fill ph-star"></i>
+                                <i class="ph-fill ph-star"></i>
+                                <i class="ph-fill ph-star"></i>
+                             </div>
+                        </div>
+                        <span class="text-xs font-light text-white opacity-80 leading-relaxed block">"Transformação que superou <br>todas as minhas expectativas."</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
                 <div class="mt-16 grid grid-cols-3 gap-8 border-t border-primary/5 pt-10">
                     <div>
